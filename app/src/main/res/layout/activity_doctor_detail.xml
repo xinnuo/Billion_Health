@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:descendantFocusability="blocksDescendants"
+        android:overScrollMode="never">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="188dp"
+                android:background="@mipmap/my_bj">
+
+                <ImageView
+                    android:id="@id/iv_nav_back"
+                    android:layout_width="35dp"
+                    android:layout_height="45dp"
+                    android:clickable="true"
+                    android:onClick="doClick"
+                    android:padding="1dp"
+                    android:src="@mipmap/back" />
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="117dp"
+                        android:layout_gravity="bottom"
+                        android:background="@drawable/rec_bg_white_radius_5" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <com.makeramen.roundedimageview.RoundedImageView
+                            android:id="@+id/doctor_detail_img"
+                            android:layout_width="55dp"
+                            android:layout_height="55dp"
+                            android:layout_marginTop="30dp"
+                            android:scaleType="centerCrop"
+                            android:src="@mipmap/my_tx_mr_1"
+                            app:riv_border_color="#FFFFFF"
+                            app:riv_border_width="2dp"
+                            app:riv_oval="true" />
+
+                        <TextView
+                            android:id="@+id/doctor_detail_name"
+                            style="@style/Font14_black"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:text="名称" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/divider_height"
+                            android:layout_marginLeft="@dimen/margin_space"
+                            android:layout_marginRight="@dimen/margin_space"
+                            android:layout_marginTop="@dimen/margin_space"
+                            android:background="@mipmap/dc_bj_box_line" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/margin_space"
+                            android:layout_marginRight="@dimen/margin_space"
+                            android:layout_marginTop="@dimen/margin_space">
+
+                            <TextView
+                                style="@style/Font13_light"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="资质：" />
+
+                            <TextView
+                                android:id="@+id/doctor_detail_zi"
+                                style="@style/Font13_black"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:maxLines="1" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/margin_space"
+                            android:layout_marginLeft="@dimen/margin_space"
+                            android:layout_marginRight="@dimen/margin_space"
+                            android:layout_marginTop="5dp">
+
+                            <TextView
+                                style="@style/Font13_light"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="擅长：" />
+
+                            <TextView
+                                android:id="@+id/doctor_detail_shan"
+                                style="@style/Font13_black"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:maxLines="1" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </FrameLayout>
+
+            </FrameLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/divider_height"
+                android:background="@color/divider" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/divider_height"
+                android:layout_marginTop="@dimen/margin_space"
+                android:background="@color/divider" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/Font14_gray"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="@dimen/margin_space"
+                    android:drawableLeft="@mipmap/circle_green"
+                    android:drawablePadding="5dp"
+                    android:gravity="center_vertical"
+                    android:text="医生简介" />
+
+                <WebView
+                    android:id="@+id/doctor_detail_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scrollbars="none"
+                    tools:ignore="WebViewLayout" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/divider_height"
+                    android:layout_marginLeft="@dimen/margin_space"
+                    android:layout_marginRight="@dimen/margin_space"
+                    android:layout_marginTop="@dimen/margin_space"
+                    android:background="@color/divider" />
+
+                <TextView
+                    style="@style/Font14_gray"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="@dimen/margin_space"
+                    android:drawableLeft="@mipmap/circle_green"
+                    android:drawablePadding="5dp"
+                    android:gravity="center_vertical"
+                    android:text="所属医院" />
+
+                <TextView
+                    android:id="@+id/doctor_detail_hospital"
+                    style="@style/Font13_black"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingExtra="3dp"
+                    android:paddingLeft="@dimen/margin_space"
+                    android:paddingRight="@dimen/margin_space" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/divider_height"
+                    android:layout_marginTop="@dimen/margin_space"
+                    android:background="@color/divider" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/divider_height"
+                android:layout_marginTop="@dimen/margin_space"
+                android:background="@color/divider" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/Font14_gray"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="@dimen/margin_space"
+                    android:drawableLeft="@mipmap/circle_green"
+                    android:drawablePadding="5dp"
+                    android:gravity="center_vertical"
+                    android:text="课程通知" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/doctor_detail_teach"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:overScrollMode="never" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/divider_height"
+                android:background="@color/divider" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/divider_height"
+                android:layout_marginTop="@dimen/margin_space"
+                android:background="@color/divider" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/Font14_gray"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="@dimen/margin_space"
+                    android:drawableLeft="@mipmap/circle_green"
+                    android:drawablePadding="5dp"
+                    android:gravity="center_vertical"
+                    android:text="医生风采" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/doctor_detail_feng"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_space"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:overScrollMode="never" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/divider_height"
+                android:layout_marginBottom="@dimen/margin_space"
+                android:background="@color/divider" />
+
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/divider_height"
+        android:background="@color/divider" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/line_height"
+        android:background="@color/white">
+
+        <CheckBox
+            android:id="@+id/doctor_detail_watch"
+            style="@style/Font13_black"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:button="@null"
+            android:drawableTop="@drawable/cb_doctor_detail_selector"
+            android:gravity="center"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            android:text="关注" />
+
+        <LinearLayout
+            android:id="@+id/doctor_detail_zixun"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            android:background="@color/colorAccent"
+            android:clickable="true"
+            android:gravity="center"
+            android:onClick="doClick">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@mipmap/dc_btn_icon" />
+
+            <TextView
+                style="@style/Font15_white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_space"
+                android:text="咨询" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

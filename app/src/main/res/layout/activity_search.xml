@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/layout_title_search" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/search_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:overScrollMode="never" />
+
+        <LinearLayout
+            android:id="@+id/search_ll"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="15dp">
+
+                <TextView
+                    style="@style/Font13_light"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="搜索历史" />
+
+                <TextView
+                    android:id="@+id/search_del"
+                    style="@style/Font13_light"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:drawableLeft="@mipmap/search_del"
+                    android:drawablePadding="@dimen/rc_dimen_size_3"
+                    android:onClick="doClick"
+                    android:text="清空历史搜索" />
+
+            </LinearLayout>
+
+            <com.zhy.view.flowlayout.TagFlowLayout
+                android:id="@+id/search_history"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/margin_space"
+                app:max_select="1" />
+
+        </LinearLayout>
+
+        <include layout="@layout/layout_no_search_result" />
+
+    </FrameLayout>
+
+</LinearLayout>

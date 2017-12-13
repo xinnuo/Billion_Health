@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#22000000"
+    android:orientation="vertical">
+
+    <View
+        android:id="@+id/v_pop_divider_top"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/divider_height"
+        android:background="@color/divider"/>
+
+    <RadioGroup
+        android:id="@+id/rg_pop_order"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/white">
+
+        <RadioButton
+            android:id="@+id/rb_pop_order_check_1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/line_height"
+            style="@style/Font14_black"
+            android:textColor="@color/rb_watch_selector_color"
+            android:button="@null"
+            android:gravity="center"
+            android:text="综合排序" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/divider_height"
+            android:layout_marginLeft="@dimen/margin_space"
+            android:layout_marginRight="@dimen/margin_space"
+            android:background="@color/divider" />
+
+        <RadioButton
+            android:id="@+id/rb_pop_order_check_2"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/line_height"
+            style="@style/Font14_black"
+            android:textColor="@color/rb_watch_selector_color"
+            android:button="@null"
+            android:gravity="center"
+            android:text="按咨询人次" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/divider_height"
+            android:layout_marginLeft="@dimen/margin_space"
+            android:layout_marginRight="@dimen/margin_space"
+            android:background="@color/divider" />
+
+        <RadioButton
+            android:id="@+id/rb_pop_order_check_3"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/line_height"
+            style="@style/Font14_black"
+            android:textColor="@color/rb_watch_selector_color"
+            android:button="@null"
+            android:gravity="center"
+            android:text="按级别排序" />
+
+    </RadioGroup>
+
+    <View
+        android:id="@+id/v_pop_divider"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

@@ -1,0 +1,273 @@
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.ruanmeng.fragment.MainFourthFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:background="@mipmap/my_bj"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/fourth_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_space"
+                android:layout_marginRight="@dimen/margin_space"
+                android:layout_marginTop="40dp"
+                android:gravity="center_vertical">
+
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:id="@+id/fourth_img"
+                    android:layout_width="55dp"
+                    android:layout_height="55dp"
+                    android:src="@mipmap/my_tx_mr"
+                    app:riv_border_color="#FFFFFF"
+                    app:riv_border_width="2dp"
+                    app:riv_oval="true" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="15dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/fourth_name"
+                        style="@style/Font14_white"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="名称" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="7dp"
+                        android:gravity="center_vertical">
+
+                        <ImageView
+                            android:id="@+id/fourth_gender"
+                            android:layout_width="17dp"
+                            android:layout_height="17dp"
+                            android:src="@mipmap/my_gender_m" />
+
+                        <TextView
+                            android:id="@+id/fourth_age"
+                            style="@style/Font13_white"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/margin_space"
+                            android:layout_marginRight="@dimen/margin_space"
+                            android:text="0岁" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/fourth_city"
+                    style="@style/Font13_white"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/rec_bg_white"
+                    android:paddingBottom="2dp"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:paddingTop="2dp"
+                    android:text="城市"
+                    android:textColor="@color/colorAccent" />
+
+                <TextView
+                    android:id="@+id/fourth_qu"
+                    style="@style/Font13_white"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_space"
+                    android:background="@drawable/rec_bg_white"
+                    android:paddingBottom="2dp"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:paddingTop="2dp"
+                    android:text="地区"
+                    android:textColor="@color/orange" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/fourth_sign"
+                style="@style/Font13_white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="80dp"
+                android:layout_marginRight="@dimen/margin_space"
+                android:layout_marginTop="2dp"
+                android:lineSpacingExtra="3dp"
+                android:text="个性签名：" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/divider_height"
+            android:background="@color/divider" />
+
+        <com.allen.library.SuperTextView
+            android:id="@+id/fourth_friend"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/line_height"
+            android:layout_marginTop="@dimen/margin_space"
+            app:sBottomLineMargin="10dp"
+            app:sLeftIconMarginLeft="@dimen/margin_space"
+            app:sLeftIconRes="@mipmap/my_icon01"
+            app:sLeftIconSize="16dp"
+            app:sLeftTextColor="@color/black"
+            app:sLeftTextMarginLeft="@dimen/margin_space"
+            app:sLeftTextString="好友关注"
+            app:sLineShow="both"
+            app:sRightIconMarginRight="@dimen/margin_space"
+            app:sRightIconRes="@mipmap/arrow_right"
+            app:sRightIconSize="13dp"
+            app:sRightTextColor="@color/light"
+            app:sRightTextMarginRight="30dp"
+            app:sTopLineMargin="0dp" />
+
+        <com.allen.library.SuperTextView
+            android:id="@+id/fourth_tai"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/line_height"
+            app:sBottomLineMargin="10dp"
+            app:sLeftIconMarginLeft="@dimen/margin_space"
+            app:sLeftIconRes="@mipmap/my_icon02"
+            app:sLeftIconSize="16dp"
+            app:sLeftTextColor="@color/black"
+            app:sLeftTextMarginLeft="@dimen/margin_space"
+            app:sLeftTextString="我的动态"
+            app:sLineShow="bottom"
+            app:sRightIconMarginRight="@dimen/margin_space"
+            app:sRightIconRes="@mipmap/arrow_right"
+            app:sRightIconSize="13dp"
+            app:sRightTextColor="@color/light"
+            app:sRightTextMarginRight="30dp" />
+
+        <com.allen.library.SuperTextView
+            android:id="@+id/fourth_teach"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/line_height"
+            android:visibility="gone"
+            app:sBottomLineMargin="10dp"
+            app:sLeftIconMarginLeft="@dimen/margin_space"
+            app:sLeftIconRes="@mipmap/my_icon03"
+            app:sLeftIconSize="16dp"
+            app:sLeftTextColor="@color/black"
+            app:sLeftTextMarginLeft="@dimen/margin_space"
+            app:sLeftTextString="我的课程"
+            app:sLineShow="bottom"
+            app:sRightIconMarginRight="@dimen/margin_space"
+            app:sRightIconRes="@mipmap/arrow_right"
+            app:sRightIconSize="13dp"
+            app:sRightTextColor="@color/light"
+            app:sRightTextMarginRight="30dp" />
+
+        <com.allen.library.SuperTextView
+            android:id="@+id/fourth_doctor"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/line_height"
+            app:sBottomLineMargin="10dp"
+            app:sLeftIconMarginLeft="@dimen/margin_space"
+            app:sLeftIconRes="@mipmap/my_icon04"
+            app:sLeftIconSize="16dp"
+            app:sLeftTextColor="@color/black"
+            app:sLeftTextMarginLeft="@dimen/margin_space"
+            app:sLeftTextString="我的医生"
+            app:sLineShow="bottom"
+            app:sRightIconMarginRight="@dimen/margin_space"
+            app:sRightIconRes="@mipmap/arrow_right"
+            app:sRightIconSize="13dp"
+            app:sRightTextColor="@color/light"
+            app:sRightTextMarginRight="30dp" />
+
+        <com.allen.library.SuperTextView
+            android:id="@+id/fourth_hospital"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/line_height"
+            app:sBottomLineMargin="10dp"
+            app:sLeftIconMarginLeft="@dimen/margin_space"
+            app:sLeftIconRes="@mipmap/my_icon05"
+            app:sLeftIconSize="16dp"
+            app:sLeftTextColor="@color/black"
+            app:sLeftTextMarginLeft="@dimen/margin_space"
+            app:sLeftTextString="我的医院"
+            app:sLineShow="bottom"
+            app:sRightIconMarginRight="@dimen/margin_space"
+            app:sRightIconRes="@mipmap/arrow_right"
+            app:sRightIconSize="13dp"
+            app:sRightTextColor="@color/light"
+            app:sRightTextMarginRight="30dp" />
+
+        <com.allen.library.SuperTextView
+            android:id="@+id/fourth_test"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/line_height"
+            app:sBottomLineMargin="10dp"
+            app:sLeftIconMarginLeft="@dimen/margin_space"
+            app:sLeftIconRes="@mipmap/my_icon06"
+            app:sLeftIconSize="16dp"
+            app:sLeftTextColor="@color/black"
+            app:sLeftTextMarginLeft="@dimen/margin_space"
+            app:sLeftTextString="心理测试"
+            app:sLineShow="bottom"
+            app:sRightIconMarginRight="@dimen/margin_space"
+            app:sRightIconRes="@mipmap/arrow_right"
+            app:sRightIconSize="13dp"
+            app:sRightTextColor="@color/light"
+            app:sRightTextMarginRight="30dp" />
+
+        <com.allen.library.SuperTextView
+            android:id="@+id/fourth_real"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/line_height"
+            app:sBottomLineMargin="10dp"
+            app:sLeftIconMarginLeft="@dimen/margin_space"
+            app:sLeftIconRes="@mipmap/my_icon08"
+            app:sLeftIconSize="16dp"
+            app:sLeftTextColor="@color/black"
+            app:sLeftTextMarginLeft="@dimen/margin_space"
+            app:sLeftTextString="实名认证"
+            app:sLineShow="bottom"
+            app:sRightIconMarginRight="@dimen/margin_space"
+            app:sRightIconRes="@mipmap/arrow_right"
+            app:sRightIconSize="13dp"
+            app:sRightTextColor="@color/light"
+            app:sRightTextMarginRight="30dp" />
+
+        <com.allen.library.SuperTextView
+            android:id="@+id/fourth_setting"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/line_height"
+            app:sBottomLineMargin="0dp"
+            app:sLeftIconMarginLeft="@dimen/margin_space"
+            app:sLeftIconRes="@mipmap/my_icon07"
+            app:sLeftIconSize="16dp"
+            app:sLeftTextColor="@color/black"
+            app:sLeftTextMarginLeft="@dimen/margin_space"
+            app:sLeftTextString="设置"
+            app:sLineShow="bottom"
+            app:sRightIconMarginRight="@dimen/margin_space"
+            app:sRightIconRes="@mipmap/arrow_right"
+            app:sRightIconSize="13dp"
+            app:sRightTextColor="@color/light"
+            app:sRightTextMarginRight="30dp" />
+
+    </LinearLayout>
+
+</android.support.v4.widget.NestedScrollView>

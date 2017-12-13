@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/book_done_img"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="80dp"
+        android:src="@mipmap/results_cg" />
+
+    <TextView
+        android:id="@+id/book_done_hint"
+        style="@style/Font14_black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="恭喜您预约成功！"
+        android:textColor="@color/colorAccent" />
+
+    <LinearLayout
+        android:id="@+id/book_done_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp">
+
+        <TextView
+            android:id="@+id/book_done_back"
+            style="@style/Font15_black"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/btn_height"
+            android:layout_marginRight="@dimen/margin_space"
+            android:layout_weight="1"
+            android:background="@drawable/rec_ova_bg_trans_stroke_divider"
+            android:clickable="true"
+            android:gravity="center"
+            android:onClick="doClick"
+            android:text="返回" />
+
+        <TextView
+            android:id="@+id/book_done_check"
+            style="@style/Font15_white"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/btn_height"
+            android:layout_marginLeft="@dimen/margin_space"
+            android:layout_weight="1"
+            android:background="@drawable/rec_ova_bg_green"
+            android:clickable="true"
+            android:gravity="center"
+            android:onClick="doClick"
+            android:text="查看预约" />
+
+    </LinearLayout>
+
+</LinearLayout>

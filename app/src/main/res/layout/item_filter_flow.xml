@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="30dp"
+    android:background="@drawable/cb_doctor_selector"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp"
+    android:gravity="center"
+    android:minWidth="80dp"
+    android:layout_margin="5dp"
+    android:text="类型"
+    android:textColor="@color/cb_doctor_selector_color"
+    style="@style/Font13_black"/>

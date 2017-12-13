@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/divider_height"
+        android:background="@color/divider" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/margin_space"
+        android:background="@color/background" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/divider_height"
+        android:background="@color/divider" />
+
+    <LinearLayout
+        android:id="@+id/first_ad"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/firt_image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/divider_height"
+            android:background="@color/divider" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin_space"
+            android:background="@color/background" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/divider_height"
+            android:background="@color/divider" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/first_type_ll"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/line_height"
+        android:gravity="center_vertical"
+        android:padding="@dimen/margin_space">
+
+        <TextView
+            android:id="@+id/first_type"
+            style="@style/Font15_black"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableLeft="@mipmap/home_lab01"
+            android:drawablePadding="5dp"
+            android:text="类型" />
+
+        <TextView
+            android:id="@+id/first_hint"
+            style="@style/Font13_light"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableRight="@mipmap/tex_right_arrow"
+            android:text="更多" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/divider_height"
+        android:layout_marginLeft="@dimen/margin_space"
+        android:layout_marginRight="@dimen/margin_space"
+        android:background="@color/divider" />
+
+</LinearLayout>

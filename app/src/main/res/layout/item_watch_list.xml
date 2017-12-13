@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/item_watch_ll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:padding="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical">
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/item_watch_img"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:src="@mipmap/my_tx_mr"
+                app:riv_oval="true" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="15dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:id="@+id/item_watch_name"
+                        style="@style/Font13_black"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="名称" />
+
+                    <TextView
+                        android:id="@+id/item_watch_state"
+                        style="@style/Font12_white"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/margin_space"
+                        android:background="@drawable/rec_ova_bg_green"
+                        android:paddingBottom="1dp"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="5dp"
+                        android:paddingTop="1dp"
+                        android:text="好友" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:id="@+id/item_watch_gender"
+                        android:layout_width="17dp"
+                        android:layout_height="17dp"
+                        android:src="@mipmap/my_gender_m" />
+
+                    <TextView
+                        android:id="@+id/item_watch_age"
+                        style="@style/Font13_light"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/margin_space"
+                        android:layout_marginRight="@dimen/margin_space"
+                        android:text="0岁" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/item_watch_notice"
+                style="@style/Font13_light"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rec_ova_bg_trans_stroke_green"
+                android:paddingBottom="3dp"
+                android:paddingLeft="@dimen/margin_space"
+                android:paddingRight="@dimen/margin_space"
+                android:paddingTop="3dp"
+                android:text="取消关注"
+                android:textColor="@color/colorAccent" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/item_watch_divider1"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/divider_height"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@color/divider" />
+
+    <View
+        android:id="@+id/item_watch_divider2"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/divider_height"
+        android:background="@color/divider"
+        android:visibility="gone" />
+
+</LinearLayout>

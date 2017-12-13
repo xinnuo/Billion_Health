@@ -1,0 +1,47 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+    <ImageView
+        android:id="@+id/item_doctor_img"
+        android:layout_width="90dp"
+        android:layout_height="120dp"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/not_3" />
+
+    <TextView
+        android:id="@+id/item_doctor_name"
+        style="@style/Font14_black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:maxLines="1"
+        android:text="名称" />
+
+    <TextView
+        android:id="@+id/item_doctor_job"
+        style="@style/Font13_light"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:maxLines="1"
+        android:text="职业" />
+
+    <TextView
+        android:id="@+id/item_doctor_watch"
+        style="@style/Font13_light"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_space"
+        android:background="@drawable/rec_ova_bg_trans_stroke_green"
+        android:paddingBottom="3dp"
+        android:paddingLeft="@dimen/margin_space"
+        android:paddingRight="@dimen/margin_space"
+        android:paddingTop="3dp"
+        android:text="取消关注"
+        android:textColor="@color/colorAccent" />
+
+</LinearLayout>

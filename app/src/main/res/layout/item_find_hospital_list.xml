@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/item_hospital_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/item_hospital_img"
+            android:layout_width="100dp"
+            android:layout_height="75dp"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/not_2"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/item_hospital_name"
+                style="@style/Font15_black"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="标题" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/item_hospital_zixun"
+                style="@style/Font13_light"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="0人咨询" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="13dp"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/yy_dw" />
+
+                <TextView
+                    android:id="@+id/item_hospital_location"
+                    style="@style/Font13_gray"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_weight="1"
+                    android:lineSpacingExtra="3dp"
+                    android:text="地址" />
+
+                <TextView
+                    android:id="@+id/item_hospital_length"
+                    style="@style/Font13_gray"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="0km" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/item_hospital_divider1"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/divider_height"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@color/divider" />
+
+    <View
+        android:id="@+id/item_hospital_divider2"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/divider_height"
+        android:background="@color/divider"
+        android:visibility="gone" />
+
+</LinearLayout>

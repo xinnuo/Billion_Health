@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/line_height"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/margin_space"
+            android:paddingRight="@dimen/margin_space">
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginRight="@dimen/margin_space"
+                android:src="@mipmap/appointment_icon01" />
+
+            <EditText
+                android:id="@+id/book_name"
+                style="@style/Font13_black"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@android:color/white"
+                android:hint="请输入姓名"
+                android:maxLength="10"
+                android:maxLines="1"
+                android:paddingLeft="5dp" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/divider_height"
+            android:layout_marginLeft="@dimen/margin_space"
+            android:layout_marginRight="@dimen/margin_space"
+            android:background="@color/divider" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/line_height"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/margin_space"
+            android:paddingRight="@dimen/margin_space">
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginRight="@dimen/margin_space"
+                android:src="@mipmap/appointment_icon02" />
+
+            <EditText
+                android:id="@+id/book_tel"
+                style="@style/Font13_black"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@android:color/white"
+                android:hint="请输入手机号"
+                android:inputType="number"
+                android:maxLength="11"
+                android:maxLines="1"
+                android:paddingLeft="5dp" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/divider_height"
+            android:layout_marginLeft="@dimen/margin_space"
+            android:layout_marginRight="@dimen/margin_space"
+            android:background="@color/divider" />
+
+        <RadioGroup
+            android:id="@+id/rg_check"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/line_height"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/margin_space"
+            android:paddingRight="@dimen/margin_space">
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginRight="@dimen/margin_space"
+                android:src="@mipmap/appointment_icon03" />
+
+            <RadioButton
+                android:id="@+id/rb_check1"
+                style="@style/Font13_black"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:button="@null"
+                android:drawableLeft="@drawable/rb_gender_selector"
+                android:drawablePadding="8dp"
+                android:gravity="center_vertical"
+                android:paddingBottom="8dp"
+                android:paddingLeft="@dimen/margin_space"
+                android:paddingTop="5dp"
+                android:text="女" />
+
+            <RadioButton
+                android:id="@+id/rb_check2"
+                style="@style/Font13_black"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/margin_space"
+                android:button="@null"
+                android:drawableLeft="@drawable/rb_gender_selector"
+                android:drawablePadding="8dp"
+                android:gravity="center_vertical"
+                android:paddingBottom="8dp"
+                android:paddingLeft="@dimen/margin_space"
+                android:paddingTop="5dp"
+                android:text="男" />
+
+        </RadioGroup>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/divider_height"
+            android:layout_marginLeft="@dimen/margin_space"
+            android:layout_marginRight="@dimen/margin_space"
+            android:background="@color/divider" />
+
+        <LinearLayout
+            android:id="@+id/book_type"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/line_height"
+            android:clickable="true"
+            android:gravity="center_vertical"
+            android:onClick="doClick"
+            android:paddingLeft="@dimen/margin_space"
+            android:paddingRight="@dimen/margin_space">
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginRight="@dimen/margin_space"
+                android:src="@mipmap/appointment_icon04" />
+
+            <TextView
+                android:id="@+id/tv_type"
+                style="@style/Font13_black"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:hint="请选择咨询类型"
+                android:maxLines="1"
+                android:paddingLeft="5dp" />
+
+            <ImageView
+                android:layout_width="13dp"
+                android:layout_height="13dp"
+                android:src="@mipmap/arrow_right" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/divider_height"
+            android:layout_marginLeft="@dimen/margin_space"
+            android:layout_marginRight="@dimen/margin_space"
+            android:background="@color/divider" />
+
+        <LinearLayout
+            android:id="@+id/book_time"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/line_height"
+            android:clickable="true"
+            android:gravity="center_vertical"
+            android:onClick="doClick"
+            android:paddingLeft="@dimen/margin_space"
+            android:paddingRight="@dimen/margin_space">
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginRight="@dimen/margin_space"
+                android:src="@mipmap/appointment_icon05" />
+
+            <TextView
+                android:id="@+id/tv_time"
+                style="@style/Font13_black"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:hint="请选择预约时间"
+                android:maxLines="1"
+                android:paddingLeft="5dp" />
+
+            <ImageView
+                android:layout_width="13dp"
+                android:layout_height="13dp"
+                android:src="@mipmap/arrow_right" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/divider_height"
+        android:background="@color/divider" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/divider_height"
+        android:layout_marginTop="@dimen/margin_space"
+        android:background="@color/divider" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:minHeight="@dimen/line_height"
+        android:paddingLeft="@dimen/margin_space"
+        android:paddingRight="@dimen/margin_space">
+
+        <ImageView
+            android:layout_width="16dp"
+            android:layout_height="@dimen/line_height"
+            android:layout_marginRight="@dimen/margin_space"
+            android:src="@mipmap/appointment_icon06" />
+
+        <EditText
+            android:id="@+id/book_memo"
+            style="@style/Font13_black"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@android:color/white"
+            android:hint="请填写备注"
+            android:lineSpacingExtra="@dimen/rc_dimen_size_3"
+            android:minHeight="@dimen/line_height"
+            android:paddingBottom="@dimen/margin_space"
+            android:paddingLeft="5dp"
+            android:paddingTop="@dimen/margin_space" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/divider_height"
+        android:background="@color/divider" />
+
+    <Button
+        android:id="@+id/book_submit"
+        style="@style/Font15_white"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/btn_height"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/rec_ova_bg_green"
+        android:onClick="doClick"
+        android:text="提交预约" />
+
+</LinearLayout>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="iv_nav_back" type="id" />
+    <item name="iv_nav_right" type="id" />
+    <item name="tv_nav_title" type="id" />
+    <item name="tv_nav_right" type="id" />
+    <item name="image_tag" type="id" />
+</resources>

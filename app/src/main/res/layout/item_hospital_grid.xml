@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <ImageView
+        android:id="@+id/item_hospital_img"
+        android:layout_width="match_parent"
+        android:layout_height="86dp"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/not_2" />
+
+    <TextView
+        android:id="@+id/item_hospital_name"
+        style="@style/Font13_black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:lineSpacingExtra="@dimen/rc_dimen_size_3"
+        android:text="名称" />
+
+    <TextView
+        android:id="@+id/item_hospital_info"
+        style="@style/Font13_light"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:maxLines="1"
+        android:visibility="gone"
+        android:text="介绍" />
+</LinearLayout>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_title"
+    android:layout_width="match_parent"
+    android:layout_height="48dp"
+    android:background="?attr/colorPrimary">
+
+    <ImageView
+        android:id="@id/iv_nav_back"
+        android:layout_width="35dp"
+        android:layout_height="45dp"
+        android:layout_gravity="center_vertical"
+        android:clickable="true"
+        android:onClick="doClick"
+        android:padding="1dp"
+        android:src="@mipmap/back" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/conversation_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxWidth="250dp"
+            android:text="消息"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tv_nav_status"
+            style="@style/Font13_black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_space"
+            android:background="@drawable/rec_ova_bg_white"
+            android:paddingBottom="1dp"
+            android:paddingLeft="@dimen/margin_space"
+            android:paddingRight="@dimen/margin_space"
+            android:paddingTop="1dp"
+            android:text="好友"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+</FrameLayout>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/title_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="false"
+        app:elevation="0dp">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="?attr/colorPrimary"
+            app:title="">
+
+            <include layout="@layout/layout_title" />
+
+        </android.support.v7.widget.Toolbar>
+
+        <FrameLayout
+            android:id="@+id/search_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/background">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/btn_height"
+                android:layout_marginLeft="@dimen/margin_space"
+                android:layout_marginRight="@dimen/margin_space"
+                android:layout_marginTop="@dimen/margin_space"
+                android:background="@drawable/rec_bg_e4e4e4"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_space"
+                    android:layout_marginRight="@dimen/margin_space"
+                    android:src="@mipmap/icon_search_f" />
+
+                <EditText
+                    android:id="@+id/layout_search"
+                    style="@style/Font13_black"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/transparent"
+                    android:hint="请输入想要搜索的关键词"
+                    android:imeOptions="actionSearch"
+                    android:singleLine="true" />
+
+                <ImageView
+                    android:id="@+id/layout_search_clear"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="8dp"
+                    android:src="@mipmap/cp_ic_search_clear"
+                    android:visibility="gone"
+                    tools:ignore="ContentDescription" />
+
+            </LinearLayout>
+
+        </FrameLayout>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <LinearLayout
+        android:id="@+id/content_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:showIn="@layout/activity_base_search" />
+
+</android.support.design.widget.CoordinatorLayout>

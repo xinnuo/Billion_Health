@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#22000000"
+    android:orientation="vertical">
+
+    <View
+        android:id="@+id/v_pop_divider_top"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/divider_height"
+        android:background="@color/divider" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/Font14_light"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_space"
+            android:text="医生类型" />
+
+        <com.zhy.view.flowlayout.TagFlowLayout
+            android:id="@+id/filter_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            app:max_select="-1" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/divider_height"
+            android:layout_marginBottom="15dp"
+            android:layout_marginLeft="@dimen/margin_space"
+            android:layout_marginRight="@dimen/margin_space"
+            android:layout_marginTop="15dp"
+            android:background="@color/divider" />
+
+        <TextView
+            style="@style/Font14_light"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_space"
+            android:layout_marginLeft="@dimen/margin_space"
+            android:text="医生资质" />
+
+        <com.zhy.view.flowlayout.TagFlowLayout
+            android:id="@+id/filter_zhi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            app:max_select="-1" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/divider_height"
+            android:layout_marginBottom="15dp"
+            android:layout_marginLeft="@dimen/margin_space"
+            android:layout_marginRight="@dimen/margin_space"
+            android:layout_marginTop="15dp"
+            android:background="@color/divider" />
+
+        <TextView
+            style="@style/Font14_light"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_space"
+            android:layout_marginLeft="@dimen/margin_space"
+            android:text="医生性别" />
+
+        <com.zhy.view.flowlayout.TagFlowLayout
+            android:id="@+id/filter_gender"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            app:max_select="-1" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/divider_height"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="15dp"
+            android:background="@color/divider" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:orientation="horizontal">
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/pop_filter_reset"
+                style="@style/Font13_black"
+                android:layout_width="120dp"
+                android:layout_height="30dp"
+                android:background="@drawable/rec_bg_trans_stroke_divider"
+                android:button="@null"
+                android:gravity="center"
+                android:text="重置" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/pop_filter_done"
+                style="@style/Font14_white"
+                android:layout_width="120dp"
+                android:layout_height="30dp"
+                android:background="@drawable/rec_bg_green"
+                android:button="@null"
+                android:gravity="center"
+                android:text="完成" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/v_pop_divider"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

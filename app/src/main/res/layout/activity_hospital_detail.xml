@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:overScrollMode="never">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.jude.rollviewpager.RollPagerView
+                android:id="@+id/hospital_detail_banner"
+                android:layout_width="match_parent"
+                android:layout_height="175dp"
+                app:rollviewpager_hint_gravity="center"
+                app:rollviewpager_play_delay="3000" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/divider_height"
+                android:background="@color/divider" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:padding="@dimen/margin_space">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/hospital_detail_name"
+                        style="@style/Font14_black"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="名称" />
+
+                    <TextView
+                        android:id="@+id/hospital_detail_addr"
+                        style="@style/Font13_gray"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="地址" />
+
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/hospital_detail_daohang"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:clickable="true"
+                    android:onClick="doClick"
+                    android:src="@mipmap/yy_qzl" />
+
+                <ImageView
+                    android:id="@+id/hospital_detail_tel"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginLeft="@dimen/margin_space"
+                    android:clickable="true"
+                    android:onClick="doClick"
+                    android:src="@mipmap/yy_phone" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/divider_height"
+                android:background="@color/divider" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/divider_height"
+                android:layout_marginTop="@dimen/margin_space"
+                android:background="@color/divider" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/Font14_gray"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="@dimen/margin_space"
+                    android:drawableLeft="@mipmap/circle_green"
+                    android:drawablePadding="5dp"
+                    android:gravity="center_vertical"
+                    android:text="医院简介" />
+
+                <WebView
+                    android:id="@+id/hospital_detail_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:ignore="WebViewLayout" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/divider_height"
+                    android:layout_marginLeft="@dimen/margin_space"
+                    android:layout_marginRight="@dimen/margin_space"
+                    android:layout_marginTop="@dimen/margin_space"
+                    android:background="@color/divider" />
+
+                <TextView
+                    style="@style/Font14_gray"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="@dimen/margin_space"
+                    android:drawableLeft="@mipmap/circle_green"
+                    android:drawablePadding="5dp"
+                    android:gravity="center_vertical"
+                    android:text="咨询范围" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/hospital_detail_range"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_space"
+                    android:overScrollMode="never" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/divider_height"
+                    android:background="@color/divider" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/margin_space"
+                    android:background="@color/background" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/divider_height"
+                    android:background="@color/divider" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/hospital_detail_more"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:clickable="true"
+                        android:gravity="center_vertical"
+                        android:onClick="doClick"
+                        android:paddingLeft="@dimen/margin_space"
+                        android:paddingRight="@dimen/margin_space">
+
+                        <TextView
+                            style="@style/Font14_gray"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:drawableLeft="@mipmap/circle_green"
+                            android:drawablePadding="5dp"
+                            android:gravity="center_vertical"
+                            android:text="医生介绍" />
+
+                        <TextView
+                            style="@style/Font13_light"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="更多" />
+
+                        <ImageView
+                            android:layout_width="13dp"
+                            android:layout_height="wrap_content"
+                            android:src="@mipmap/arrow_right" />
+
+                    </LinearLayout>
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/hospital_detail_doctor"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/margin_space"
+                        android:overScrollMode="never" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/divider_height"
+                android:layout_marginBottom="@dimen/margin_space"
+                android:background="@color/divider" />
+
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/divider_height"
+        android:background="@color/divider" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/line_height"
+        android:background="@color/white">
+
+        <CheckBox
+            android:id="@+id/hospital_collect"
+            style="@style/Font13_black"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:button="@null"
+            android:drawableTop="@drawable/cb_hospital_selector"
+            android:gravity="center"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            android:text="收藏" />
+
+        <LinearLayout
+            android:id="@+id/hospital_yuyue"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            android:background="@color/colorAccent"
+            android:clickable="true"
+            android:gravity="center"
+            android:onClick="doClick">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@mipmap/yy_appointment" />
+
+            <TextView
+                style="@style/Font15_white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_space"
+                android:text="预约" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

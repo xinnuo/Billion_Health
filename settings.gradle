@@ -1,0 +1,1 @@
+include ':app', ':okgo-lib', ':MNProgressHUD', ':RollViewPager', ':SuperText', ':RongCloudIMkit', ':BaiduMap', ':JPush', ':MNImageBrowser', ':WeChatVideoView', ':RongCloudCallKit', ':AMap'

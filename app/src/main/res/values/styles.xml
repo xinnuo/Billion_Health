@@ -1,0 +1,201 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <!-- Actionbar color Actionbar的背景色 -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <!-- Status bar color 状态栏背景色 -->
+        <item name="colorPrimaryDark">@color/colorPrimary</item>
+        <!-- 各控制元件(如：check box、switch 或是 radiobutton) 被勾选 (checked) 或是选定 (selected) 的颜色 -->
+        <item name="colorAccent">@color/colorAccent</item>
+        <!-- Window color App的背景色 -->
+        <item name="android:colorBackground">@color/background</item>
+        <!--App bar 上的标题与更多菜单中的文字颜色-->
+        <item name="android:textColorPrimary">@color/black</item>
+        <!-- toolbar的主题-->
+        <item name="toolbarStyle">@style/CustomToolbar</item>
+    </style>
+
+    <style name="CustomToolbar" parent="Widget.AppCompat.Toolbar">
+        <!-- 设置该属性解决空白部分-->
+        <item name="contentInsetStart">0dp</item>
+        <item name="contentInsetEnd">0dp</item>
+    </style>
+
+    <style name="Font15_black">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textColorHint">@color/colorControlNormal</item>
+    </style>
+
+    <style name="Font15_white">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textColorHint">@color/colorControlNormal</item>
+    </style>
+
+    <style name="Font15_gray">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/gray</item>
+        <item name="android:textColorHint">@color/colorControlNormal</item>
+    </style>
+
+    <style name="Font15_light">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/light</item>
+        <item name="android:textColorHint">@color/colorControlNormal</item>
+    </style>
+
+    <style name="Font14_white">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textColorHint">@color/colorControlNormal</item>
+    </style>
+
+    <style name="Font14_black">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textColorHint">@color/colorControlNormal</item>
+    </style>
+
+    <style name="Font14_gray">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/gray</item>
+        <item name="android:textColorHint">@color/colorControlNormal</item>
+    </style>
+
+    <style name="Font14_light">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/light</item>
+        <item name="android:textColorHint">@color/colorControlNormal</item>
+    </style>
+
+    <style name="Font13_white">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textColorHint">@color/colorControlNormal</item>
+    </style>
+
+    <style name="Font13_black">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textColorHint">@color/colorControlNormal</item>
+    </style>
+
+    <style name="Font13_gray">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/gray</item>
+        <item name="android:textColorHint">@color/colorControlNormal</item>
+    </style>
+
+    <style name="Font13_light">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/light</item>
+        <item name="android:textColorHint">@color/colorControlNormal</item>
+    </style>
+
+    <style name="Font12_white">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textColorHint">@color/colorControlNormal</item>
+    </style>
+
+    <style name="Font12_black">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textColorHint">@color/colorControlNormal</item>
+    </style>
+
+    <style name="Font12_gray">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/gray</item>
+        <item name="android:textColorHint">@color/colorControlNormal</item>
+    </style>
+
+    <style name="Font12_light">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/light</item>
+        <item name="android:textColorHint">@color/colorControlNormal</item>
+    </style>
+
+
+    <style name="Font14_selector">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/rb_watch_selector_color</item>
+        <item name="android:textColorHint">@color/colorControlNormal</item>
+    </style>
+
+
+    <style name="VideoTheme" parent="@style/Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+
+    <!-- popwidnow 显示消失 动画-->
+    <style name="pop_anim_style">
+        <!-- 指定显示的动画xml  -->
+        <item name="android:windowEnterAnimation">@anim/pop_on</item>
+        <!-- 指定消失的动画xml  -->
+        <item name="android:windowExitAnimation">@anim/pop_close</item>
+    </style>
+
+    <!--默认样式 注意* 样式只可修改，不能删除任何一项 否则报错-->
+    <style name="picture.customer.style" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <!--标题栏背景色-->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <!--状态栏背景色-->
+        <item name="colorPrimaryDark">@color/colorPrimary</item>
+        <!--是否改变图片列表界面状态栏字体颜色为黑色-->
+        <item name="picture.statusFontColor">false</item>
+        <!--返回键图标 36x36-->
+        <item name="picture.leftBack.icon">@mipmap/picture_back</item>
+        <!--标题下拉箭头-->
+        <item name="picture.arrow_down.icon">@drawable/arrow_down</item>
+        <!--标题上拉箭头-->
+        <item name="picture.arrow_up.icon">@drawable/arrow_up</item>
+        <!--标题文字颜色-->
+        <item name="picture.title.textColor">@color/white</item>
+        <!--标题栏右边文字-->
+        <item name="picture.right.textColor">@color/white</item>
+        <!--图片列表勾选样式 36x36-->
+        <item name="picture.checked.style">@drawable/checkbox_selector</item>
+        <!--开启图片列表勾选数字模式-->
+        <item name="picture.style.checkNumMode">false</item>
+        <!--选择图片样式0/9-->
+        <item name="picture.style.numComplete">false</item>
+        <!--图片列表底部背景色-->
+        <item name="picture.bottom.bg">@color/color_fa</item>
+        <!--图片列表预览文字颜色-->
+        <item name="picture.preview.textColor">@color/colorAccent</item>
+        <!--图片列表已完成文字颜色-->
+        <item name="picture.complete.textColor">@color/colorAccent</item>
+        <!--图片已选数量圆点背景色-->
+        <item name="picture.num.style">@drawable/green_num_oval</item>
+        <!--预览界面标题文字颜色-->
+        <item name="picture.ac_preview.title.textColor">@color/white</item>
+        <!--预览界面已完成文字颜色-->
+        <item name="picture.ac_preview.complete.textColor">@color/colorAccent</item>
+        <!--预览界面标题栏背景色-->
+        <item name="picture.ac_preview.title.bg">@color/bar_grey</item>
+        <!--预览界面底部背景色-->
+        <item name="picture.ac_preview.bottom.bg">@color/bar_grey_90</item>
+        <!--预览界面状态栏颜色-->
+        <item name="picture.status.color">@color/bar_grey_90</item>
+        <!--预览界面返回箭头 36x36-->
+        <item name="picture.preview.leftBack.icon">@mipmap/picture_back</item>
+        <!--是否改变预览界面状态栏字体颜色为黑色-->
+        <item name="picture.preview.statusFontColor">false</item>
+        <!--裁剪页面标题背景色-->
+        <item name="picture.crop.toolbar.bg">@color/colorPrimary</item>
+        <!--裁剪页面状态栏颜色-->
+        <item name="picture.crop.status.color">@color/colorPrimary</item>
+        <!--裁剪页面标题文字颜色-->
+        <item name="picture.crop.title.color">@color/white</item>
+        <!--相册文件夹列表选中图标-->
+        <item name="picture.folder_checked_dot">@drawable/green_oval</item>
+    </style>
+
+</resources>

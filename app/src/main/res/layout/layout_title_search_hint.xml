@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_title"
+    android:layout_width="match_parent"
+    android:layout_height="48dp"
+    android:background="?attr/colorPrimary">
+
+    <ImageView
+        android:id="@id/iv_nav_back"
+        android:layout_width="35dp"
+        android:layout_height="45dp"
+        android:layout_gravity="center_vertical"
+        android:clickable="true"
+        android:onClick="doClick"
+        android:padding="1dp"
+        android:src="@mipmap/back" />
+
+    <LinearLayout
+        android:id="@+id/search_hint"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="9dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="9dp"
+        android:background="@drawable/rec_ova_bg_white"
+        android:clickable="true"
+        android:gravity="center"
+        android:onClick="doClick">
+
+        <ImageView
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginRight="@dimen/margin_space"
+            android:src="@mipmap/home_searchicon" />
+
+        <TextView
+            android:id="@+id/search_hint_txt"
+            style="@style/Font13_black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="请输入医生名字"
+            android:textColor="@color/colorControlNormal" />
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.allen.library.SuperTextView
+        android:id="@+id/setting_about"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/line_height"
+        app:sBottomLineMargin="@dimen/margin_space"
+        app:sLeftTextColor="@color/black"
+        app:sLeftTextMarginLeft="@dimen/margin_space"
+        app:sLeftTextString="关于我们"
+        app:sLineShow="both"
+        app:sRightIconMarginRight="@dimen/margin_space"
+        app:sRightIconRes="@mipmap/arrow_right"
+        app:sRightIconSize="13dp"
+        app:sRightTextColor="@color/light"
+        app:sRightTextMarginRight="30dp"
+        app:sTopLineMargin="0dp" />
+
+    <com.allen.library.SuperTextView
+        android:id="@+id/setting_help"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/line_height"
+        app:sBottomLineMargin="@dimen/margin_space"
+        app:sLeftTextColor="@color/black"
+        app:sLeftTextMarginLeft="@dimen/margin_space"
+        app:sLeftTextString="帮助中心"
+        app:sLineShow="bottom"
+        app:sRightIconMarginRight="@dimen/margin_space"
+        app:sRightIconRes="@mipmap/arrow_right"
+        app:sRightIconSize="13dp"
+        app:sRightTextColor="@color/light"
+        app:sRightTextMarginRight="30dp" />
+
+    <com.allen.library.SuperTextView
+        android:id="@+id/setting_cache"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/line_height"
+        app:sBottomLineMargin="@dimen/margin_space"
+        app:sLeftTextColor="@color/black"
+        app:sLeftTextMarginLeft="@dimen/margin_space"
+        app:sLeftTextString="清理缓存"
+        app:sLineShow="bottom"
+        app:sRightIconMarginRight="@dimen/margin_space"
+        app:sRightIconRes="@mipmap/arrow_right"
+        app:sRightIconSize="13dp"
+        app:sRightTextColor="@color/light"
+        app:sRightTextString="0B"
+        app:sRightTextMarginRight="30dp" />
+
+    <com.allen.library.SuperTextView
+        android:id="@+id/setting_version"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/line_height"
+        app:sBottomLineMargin="0dp"
+        app:sLeftTextColor="@color/black"
+        app:sLeftTextMarginLeft="@dimen/margin_space"
+        app:sLeftTextString="版本更新"
+        app:sLineShow="bottom"
+        app:sRightIconMarginRight="@dimen/margin_space"
+        app:sRightIconSize="13dp"
+        app:sRightTextColor="@color/light"
+        app:sRightTextString="v1.0.0"
+        app:sRightTextMarginRight="30dp" />
+
+    <com.allen.library.SuperTextView
+        android:id="@+id/setting_feedback"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/line_height"
+        android:layout_marginTop="@dimen/margin_space"
+        app:sBothLineMargin="0dp"
+        app:sLeftTextColor="@color/black"
+        app:sLeftTextMarginLeft="@dimen/margin_space"
+        app:sLeftTextString="意见反馈"
+        app:sLineShow="both"
+        app:sRightIconMarginRight="@dimen/margin_space"
+        app:sRightIconSize="13dp"
+        app:sRightIconRes="@mipmap/arrow_right"
+        app:sRightTextColor="@color/light"
+        app:sRightTextMarginRight="30dp" />
+
+    <Button
+        android:id="@+id/bt_quit"
+        style="@style/Font15_white"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/btn_height"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/rec_ova_bg_green"
+        android:onClick="doClick"
+        android:text="退出当前账号" />
+
+</LinearLayout>

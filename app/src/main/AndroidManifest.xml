@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.ruanmeng.billion_health">
+
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <application
+        android:name="com.ruanmeng.Application"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".GuideActivity"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".LoginActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".RegisterActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ForgetActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SearchActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".SettingActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".InfoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".NicknameActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SignActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".PasswordActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".FeedbackActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".RealActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".HospitalActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".DoctorActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".TeachActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".StateActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".StateLateActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".WatchActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".IssueActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".StateDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".HomeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".HospitalFindActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".HospitalDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".FriendsActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustNothing" />
+        <activity
+            android:name=".BookActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".BookDoneActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".TeachFindActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".DoctorFindActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".WebActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".CityActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustNothing" />
+        <activity
+            android:name=".DoctorDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".DoctorMoreActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".HelpActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".TeachDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".VideoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".DealActivity"
+            android:screenOrientation="portrait" />
+
+        <!-- 融云即时通讯 start -->
+        <!-- 会话列表 -->
+        <activity
+            android:name="com.ruanmeng.fragment.MainThirdFragment"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data
+                    android:host="${applicationId}"
+                    android:pathPrefix="/conversationlist"
+                    android:scheme="rong" />
+            </intent-filter>
+        </activity>
+        <!-- 会话界面 -->
+        <activity
+            android:name=".ConversationActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data
+                    android:host="${applicationId}"
+                    android:pathPrefix="/conversation/"
+                    android:scheme="rong" />
+            </intent-filter>
+        </activity>
+
+        <!-- 必须实现，否则会收不到推送消息，自定义的类继承自 PushMessageReceiver -->
+        <receiver
+            android:name="com.ruanmeng.receiver.RongPushReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="io.rong.push.intent.MESSAGE_ARRIVED" />
+                <action android:name="io.rong.push.intent.MI_MESSAGE_ARRIVED" />
+                <action android:name="io.rong.push.intent.MESSAGE_CLICKED" />
+                <action android:name="io.rong.push.intent.MI_MESSAGE_CLICKED" />
+            </intent-filter>
+        </receiver>
+
+        <!-- Android 7.0 应用间共享文件 -->
+        <provider
+            android:name="io.rong.imkit.RongCloudFileProvider"
+            android:authorities="${applicationId}.FileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/rc_file_path" />
+        </provider>
+
+        <meta-data
+            android:name="com.amap.api.v2.apikey"
+            android:value="42f6630157d6e8eec6fb75c869327949" />
+        <!-- 融云即时通讯 end -->
+
+
+        <!-- JPush 用户自定义的广播接收器 -->
+        <receiver
+            android:name="com.ruanmeng.receiver.JPushReceiver"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.REGISTRATION" /> <!-- Required  用户注册SDK的intent -->
+                <action android:name="cn.jpush.android.intent.UNREGISTRATION" />
+                <action android:name="cn.jpush.android.intent.MESSAGE_RECEIVED" /> <!-- Required  用户接收SDK消息的intent -->
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED" /> <!-- Required  用户接收SDK通知栏信息的intent -->
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_OPENED" /> <!-- Required  用户打开自定义通知栏的intent -->
+                <action android:name="cn.jpush.android.intent.ACTION_RICHPUSH_CALLBACK" /> <!-- Optional 用户接受Rich Push Javascript 回调函数的intent -->
+                <action android:name="cn.jpush.android.intent.CONNECTION" /> <!-- 接收网络变化 连接/断开 since 1.6.3 -->
+                <category android:name="${applicationId}" />
+            </intent-filter>
+        </receiver>
+
+        <!-- Required since 3.0.7 -->
+        <!-- 新的tag/alias接口结果返回需要开发者配置一个自定的广播 -->
+        <!-- 该广播需要继承JPush提供的JPushMessageReceiver类, 并如下新增一个 Intent-Filter -->
+        <receiver android:name="com.ruanmeng.receiver.JPushMessageReceiver">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.RECEIVE_MESSAGE" />
+
+                <category android:name="${applicationId}" />
+            </intent-filter>
+        </receiver>
+        <!-- JPush end -->
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="${applicationId}.FileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <activity android:name=".Main2Activity" />
+        <activity android:name=".TestActivity"></activity>
+    </application>
+
+</manifest>

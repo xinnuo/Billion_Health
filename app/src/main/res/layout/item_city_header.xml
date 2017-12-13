@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@color/background">
+
+        <LinearLayout
+            android:id="@+id/layout_locate"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:minWidth="96dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:gravity="center"
+            android:clickable="true">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/cp_ic_locate" />
+
+            <TextView
+                android:id="@+id/located_city"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:text="正在定位..."
+                style="@style/Font14_black"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:orientation="vertical"
+        android:padding="@dimen/margin_space">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical">
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/item_comment_img"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:clickable="true"
+                android:onClick="doClick"
+                android:src="@mipmap/my_tx_mr_1"
+                app:riv_oval="true" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="15dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:id="@+id/item_comment_name"
+                        style="@style/Font13_black"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/margin_space"
+                        android:layout_weight="1"
+                        android:text="名称" />
+
+                    <ImageView
+                        android:id="@+id/item_comment_ping"
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:src="@mipmap/kc_pl_icon" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/item_comment_time"
+                    style="@style/Font13_light"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="2017-08-28  14:25" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/item_comment_content"
+            style="@style/Font13_gray"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_space"
+            android:lineSpacingExtra="3dp"
+            android:text="内容" />
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/item_comment_divider1"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/divider_height"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@color/divider" />
+
+    <View
+        android:id="@+id/item_comment_divider2"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/divider_height"
+        android:layout_marginBottom="@dimen/margin_space"
+        android:background="@color/divider"
+        android:visibility="gone" />
+
+</LinearLayout>

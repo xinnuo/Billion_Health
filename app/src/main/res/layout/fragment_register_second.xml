@@ -1,0 +1,62 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background"
+    tools:context="com.ruanmeng.fragment.RegisterSecondFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/line_height"
+        android:background="@android:color/white"
+        android:paddingLeft="@dimen/margin_space"
+        android:paddingRight="@dimen/margin_space"
+        android:gravity="center_vertical">
+
+        <EditText
+            android:id="@+id/et_code"
+            style="@style/Font13_black"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@android:color/white"
+            android:hint="请输入验证码"
+            android:inputType="number"
+            android:maxLength="6"
+            android:maxLines="1" />
+
+        <Button
+            android:id="@+id/bt_yzm"
+            style="@style/Font12_gray"
+            android:layout_width="90dp"
+            android:layout_height="26dp"
+            android:background="@drawable/rec_bg_trans_stroke_green"
+            android:textColor="@color/colorAccent"
+            android:gravity="center"
+            android:onClick="doClick"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="获取验证码" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/divider_height"
+        android:background="@color/divider" />
+
+    <Button
+        android:id="@+id/bt_next2"
+        style="@style/Font15_white"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/btn_height"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/rec_bg_green"
+        android:onClick="doClick"
+        android:text="下一步" />
+
+
+</LinearLayout>

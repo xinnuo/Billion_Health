@@ -1,0 +1,66 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical"
+    tools:context="com.ruanmeng.billion_health.NicknameActivity">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/divider_height"
+        android:background="@color/divider" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/line_height"
+        android:background="@android:color/white"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/margin_space"
+        android:paddingRight="@dimen/margin_space">
+
+        <TextView
+            style="@style/Font13_gray"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15dp"
+            android:text="用户名" />
+
+        <EditText
+            android:id="@+id/et_name"
+            style="@style/Font13_black"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/white"
+            android:hint="请输入用户名"
+            android:maxLength="12"
+            android:maxLines="1" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/divider_height"
+        android:background="@color/divider" />
+
+    <TextView
+        style="@style/Font12_light"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_space"
+        android:layout_marginTop="5dp"
+        android:text="好的名字可以让好友更好的记住你" />
+
+    <Button
+        android:id="@+id/bt_ok"
+        style="@style/Font15_white"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/btn_height"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/rec_ova_bg_green"
+        android:onClick="doClick"
+        android:text="确定" />
+
+</LinearLayout>

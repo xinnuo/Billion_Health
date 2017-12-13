@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/divider_height"
+        android:background="@color/divider" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/btn_height"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/margin_space"
+            android:paddingRight="@dimen/margin_space">
+
+            <TextView
+                style="@style/Font13_gray"
+                android:layout_width="65dp"
+                android:layout_height="wrap_content"
+                android:text="姓名" />
+
+            <EditText
+                android:id="@+id/et_name"
+                style="@style/Font13_black"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/line_height"
+                android:background="@android:color/white"
+                android:hint="请输入您的姓名"
+                android:maxLength="5"
+                android:paddingLeft="@dimen/margin_space" />
+
+        </LinearLayout>
+
+        <RadioGroup
+            android:id="@+id/rg_check"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/margin_space"
+            android:paddingRight="@dimen/margin_space">
+
+            <TextView
+                style="@style/Font13_gray"
+                android:layout_width="65dp"
+                android:layout_height="wrap_content"
+                android:text="性别" />
+
+            <RadioButton
+                android:id="@+id/rb_check1"
+                style="@style/Font13_black"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:button="@null"
+                android:drawableLeft="@drawable/rb_gender_selector"
+                android:drawablePadding="8dp"
+                android:gravity="center_vertical"
+                android:paddingBottom="8dp"
+                android:paddingLeft="@dimen/margin_space"
+                android:paddingTop="5dp"
+                android:text="女" />
+
+            <RadioButton
+                android:id="@+id/rb_check2"
+                style="@style/Font13_black"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/margin_space"
+                android:button="@null"
+                android:drawableLeft="@drawable/rb_gender_selector"
+                android:drawablePadding="8dp"
+                android:gravity="center_vertical"
+                android:paddingBottom="8dp"
+                android:paddingLeft="@dimen/margin_space"
+                android:paddingTop="5dp"
+                android:text="男" />
+
+        </RadioGroup>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/btn_height"
+            android:layout_marginBottom="5dp"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/margin_space"
+            android:paddingRight="@dimen/margin_space">
+
+            <TextView
+                style="@style/Font13_gray"
+                android:layout_width="65dp"
+                android:layout_height="wrap_content"
+                android:text="身份证号" />
+
+            <EditText
+                android:id="@+id/et_card"
+                style="@style/Font13_black"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/line_height"
+                android:background="@android:color/white"
+                android:digits="0123456789Xx"
+                android:hint="请输入您的身份证号"
+                android:inputType="number"
+                android:maxLength="18"
+                android:paddingLeft="@dimen/margin_space" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/divider_height"
+        android:background="@color/divider" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/divider_height"
+        android:layout_marginTop="@dimen/margin_space"
+        android:background="@color/divider" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+        <TextView
+            style="@style/Font13_gray"
+            android:layout_width="65dp"
+            android:layout_height="@dimen/line_height"
+            android:layout_marginLeft="@dimen/margin_space"
+            android:gravity="center_vertical"
+            android:text="身份证照" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/margin_space">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/real_img1"
+                        android:layout_width="72dp"
+                        android:layout_height="52dp"
+                        android:layout_margin="8dp"
+                        android:src="@mipmap/my_smrz"
+                        android:clickable="true"
+                        android:onClick="doClick" />
+
+                    <ImageView
+                        android:id="@+id/real_del1"
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:layout_gravity="end"
+                        android:clickable="true"
+                        android:onClick="doClick"
+                        android:src="@mipmap/my_smrz_del"
+                        android:visibility="invisible" />
+
+                </FrameLayout>
+
+                <TextView
+                    style="@style/Font12_gray"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:text="身份证照正面" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_space"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/real_img2"
+                        android:layout_width="72dp"
+                        android:layout_height="52dp"
+                        android:layout_margin="8dp"
+                        android:src="@mipmap/my_smrz"
+                        android:clickable="true"
+                        android:onClick="doClick" />
+
+                    <ImageView
+                        android:id="@+id/real_del2"
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:layout_gravity="end"
+                        android:clickable="true"
+                        android:onClick="doClick"
+                        android:src="@mipmap/my_smrz_del"
+                        android:visibility="invisible" />
+
+                </FrameLayout>
+
+                <TextView
+                    style="@style/Font12_gray"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:text="身份证照反面" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/divider_height"
+        android:background="@color/divider" />
+
+    <Button
+        android:id="@+id/bt_submit"
+        style="@style/Font15_white"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/btn_height"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/rec_ova_bg_green"
+        android:onClick="doClick"
+        android:text="提交" />
+
+</LinearLayout>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_camera_shi"
+            style="@style/Font14_black"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/line_height"
+            android:gravity="center"
+            android:text="拍摄" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/divider_height"
+            android:layout_marginLeft="@dimen/margin_space"
+            android:layout_marginRight="@dimen/margin_space"
+            android:background="@color/divider" />
+
+        <TextView
+            android:id="@+id/tv_camera_zhao"
+            style="@style/Font14_black"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/line_height"
+            android:gravity="center"
+            android:text="拍照" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/divider_height"
+            android:layout_marginLeft="@dimen/margin_space"
+            android:layout_marginRight="@dimen/margin_space"
+            android:background="@color/divider" />
+
+        <TextView
+            android:id="@+id/tv_camera_ce"
+            style="@style/Font14_black"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/line_height"
+            android:gravity="center"
+            android:text="从手机相册选择" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/divider_height"
+        android:background="@color/divider" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/divider_height"
+        android:layout_marginTop="@dimen/margin_space"
+        android:background="@color/divider" />
+
+    <TextView
+        android:id="@+id/tv_camera_cancel"
+        style="@style/Font14_black"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/line_height"
+        android:background="@color/white"
+        android:gravity="center"
+        android:text="取消" />
+
+</LinearLayout>
