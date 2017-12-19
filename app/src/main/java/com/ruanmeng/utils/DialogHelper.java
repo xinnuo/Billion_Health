@@ -60,13 +60,11 @@ public class DialogHelper {
     }
 
     public static void showDialog(Context context) {
-        if (mMProgressDialog == null) {
-            mMProgressDialog = new MProgressDialog.Builder(context)
-                    .setCancelable(true)
-                    .isCanceledOnTouchOutside(false)
-                    .setDimAmount(0.5f)
-                    .build();
-        }
+        mMProgressDialog = new MProgressDialog.Builder(context)
+                .setCancelable(true)
+                .isCanceledOnTouchOutside(false)
+                .setDimAmount(0.5f)
+                .build();
 
         mMProgressDialog.show();
     }
@@ -319,7 +317,8 @@ public class DialogHelper {
             }
 
             @Override
-            public void setUiBeforShow() { }
+            public void setUiBeforShow() {
+            }
         };
 
         dialog.show();
