@@ -134,6 +134,9 @@
         <activity
             android:name=".DealActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".TestActivity"
+            android:screenOrientation="portrait" />
 
         <!-- 融云即时通讯 start -->
         <!-- 会话列表 -->
@@ -237,8 +240,6 @@
                 android:resource="@xml/file_paths" />
         </provider>
 
-        <activity android:name=".Main2Activity" />
-        <activity android:name=".TestActivity"></activity>
     </application>
 
 </manifest>
