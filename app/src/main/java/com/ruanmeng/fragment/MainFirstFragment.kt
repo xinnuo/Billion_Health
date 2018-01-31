@@ -1,6 +1,5 @@
 package com.ruanmeng.fragment
 
-import android.Manifest
 import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -34,14 +33,10 @@ import net.idik.lib.slimadapter.SlimAdapter
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 import org.json.JSONObject
-import permissions.dispatcher.NeedsPermission
-import permissions.dispatcher.OnPermissionDenied
-import permissions.dispatcher.RuntimePermissions
 
 /**
  * A simple [Fragment] subclass.
  */
-@RuntimePermissions
 class MainFirstFragment : BaseFragment() {
 
     private val list = ArrayList<Any>()
@@ -74,8 +69,15 @@ class MainFirstFragment : BaseFragment() {
     override fun onStart() {
         super.onStart()
 
-        if (getString("city", "") != "") first_city.text = getString("city")
-        else MainFirstFragmentPermissionsDispatcher.needsPermissionWithCheck(this@MainFirstFragment)
+        if (getString("city", "").isNotEmpty()) first_city.text = getString("city")
+        else {
+            BDLocationHelper.getInstance(activity).startLocation(1) { location, codes ->
+                if (location != null && 1 in codes) {
+                    first_city.text = location.city.replace("市", "")
+                    getCityCode(location)
+                }
+            }
+        }
     }
 
     override fun init_title() {
@@ -360,25 +362,5 @@ class MainFirstFragment : BaseFragment() {
     override fun onDestroy() {
         EventBus.getDefault().unregister(this@MainFirstFragment)
         super.onDestroy()
-    }
-
-    @NeedsPermission(Manifest.permission.ACCESS_FINE_LOCATION)
-    fun needsPermission() {
-        BDLocationHelper.getInstance(activity).startLocation(1) { location, codes ->
-            if (location != null && 1 in codes) {
-                first_city.text = location.city.replace("市", "")
-                getCityCode(location)
-            }
-        }
-    }
-
-    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        MainFirstFragmentPermissionsDispatcher.onRequestPermissionsResult(this, requestCode, grantResults)
-    }
-
-    @OnPermissionDenied(Manifest.permission.ACCESS_FINE_LOCATION)
-    fun permissionDenied() {
-        showToask("请求权限被拒绝")
     }
 }

@@ -28,13 +28,17 @@ android {
         //处理.so文件时的重要法则:要么全部支持，要么都不支持
         ndk { abiFilters "armeabi-v7a", "x86" }
 
-        /*applicationVariants.all { variant ->
-            variant.outputs.each { output ->
-                def file = output.outputFile
-                def fileName = file.name.replace(".apk", "-v" + versionName + ".apk")
-                output.outputFile = new File(file.parentFile, fileName)
+        applicationVariants.all { variant ->
+            if (variant.buildType.name == "release") {
+                variant.outputs.all { output ->
+                    def file = output.outputFile
+                    if (file != null && file.name.endsWith('.apk')) {
+                        def fileName = file.name.replace(".apk", "-v${versionName}.apk")
+                        outputFileName = fileName
+                    }
+                }
             }
-        }*/
+        }
     }
     buildTypes {
         debug {
@@ -102,12 +106,11 @@ dependencies {
     compile(name: 'HMS-SDK-2.4.0.300', ext: 'aar')
 
     //请求权限
-    compile 'com.github.hotchemi:permissionsdispatcher:2.4.0'
-    kapt 'com.github.hotchemi:permissionsdispatcher-processor:2.4.0'
+    compile 'com.yanzhenjie:permission:1.1.2'
 
     //Glide 4.0
-    compile 'com.github.bumptech.glide:glide:4.0.0'
-    kapt 'com.github.bumptech.glide:compiler:4.0.0'
+    compile 'com.github.bumptech.glide:glide:4.2.0'
+    kapt 'com.github.bumptech.glide:compiler:4.2.0'
 
     compile 'net.idik:slimadapter:2.1.2'
     compile('com.github.qdxxxx:StickyHeaderDecoration:1.0.1') {
@@ -121,7 +124,7 @@ dependencies {
     compile 'com.qianwen:update-app-kotlin:1.1.0'
 
     compile 'org.greenrobot:eventbus:3.0.0'
-    compile 'com.makeramen:roundedimageview:2.2.1'
+    compile 'com.makeramen:roundedimageview:2.3.0'
     compile 'com.flyco.dialog:FlycoDialog_Lib:1.3.2@aar'
     compile 'com.weigan:loopView:0.1.2'
     compile 'com.hyman:flowlayout-lib:1.1.1'

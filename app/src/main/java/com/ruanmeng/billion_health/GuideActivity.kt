@@ -9,12 +9,10 @@ import android.view.WindowManager
 import com.ruanmeng.adapter.GuideAdapter
 import com.ruanmeng.base.BaseActivity
 import com.ruanmeng.http.toast
+import com.yanzhenjie.permission.AndPermission
+import com.yanzhenjie.permission.PermissionListener
 import kotlinx.android.synthetic.main.activity_guide.*
-import permissions.dispatcher.NeedsPermission
-import permissions.dispatcher.OnPermissionDenied
-import permissions.dispatcher.RuntimePermissions
 
-@RuntimePermissions
 class GuideActivity : BaseActivity() {
 
     private var isReady: Boolean = false
@@ -62,9 +60,24 @@ class GuideActivity : BaseActivity() {
         setContentView(R.layout.activity_guide)
         transparentStatusBar(false)
 
-        GuideActivityPermissionsDispatcher.needPermissionWithCheck(this@GuideActivity)
-
         window.decorView.postDelayed({ handler.sendEmptyMessage(0) }, 2000)
+
+        AndPermission.with(this@GuideActivity)
+                .permission(
+                        Manifest.permission.CAMERA,
+                        Manifest.permission.ACCESS_FINE_LOCATION,
+                        Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                .callback(object : PermissionListener {
+                    override fun onSucceed(requestCode: Int, grantPermissions: MutableList<String>) {
+                        handler.sendEmptyMessage(0)
+                    }
+
+                    override fun onFailed(requestCode: Int, deniedPermissions: MutableList<String>) {
+                        toast("请求权限被拒绝")
+                        onBackPressed()
+                    }
+                })
+                .start()
 
         guide_in.setOnClickListener {
             putBoolean("isFirst", true)
@@ -72,21 +85,5 @@ class GuideActivity : BaseActivity() {
             startActivity(MainActivity::class.java)
             onBackPressed()
         }
-    }
-
-    @NeedsPermission(Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE)
-    fun needPermission() {
-        handler.sendEmptyMessage(0)
-    }
-
-    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        GuideActivityPermissionsDispatcher.onRequestPermissionsResult(this, requestCode, grantResults)
-    }
-
-    @OnPermissionDenied(Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE)
-    fun permissionDenied() {
-        showToask("请求权限被拒绝")
-        onBackPressed()
     }
 }
