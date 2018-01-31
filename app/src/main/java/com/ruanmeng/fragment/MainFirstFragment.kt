@@ -193,7 +193,6 @@ class MainFirstFragment : BaseFragment() {
                                         if (img_Ad.isNotEmpty()) {
                                             GlideApp.with(this@MainFirstFragment)
                                                     .load(HttpIP.BaseImg + img_Ad)
-                                                    .centerCrop()
                                                     .dontAnimate()
                                                     .into(view)
                                         }
