@@ -171,7 +171,7 @@ public class RongCallKit {
             return false;
         }
         if (!RongIMClient.getInstance().getCurrentConnectionStatus().equals(RongIMClient.ConnectionStatusListener.ConnectionStatus.CONNECTED)) {
-            Toast.makeText(context, context.getResources().getString(io.rong.callkit.R.string.rc_voip_call_network_error), Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, context.getResources().getString(R.string.rc_voip_call_network_error), Toast.LENGTH_SHORT).show();
             return false;
         }
         return true;

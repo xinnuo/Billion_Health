@@ -17,7 +17,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:layout_below="@+id/rc_voip_call_minimize">
 
         <io.rong.imkit.widget.AsyncImageView

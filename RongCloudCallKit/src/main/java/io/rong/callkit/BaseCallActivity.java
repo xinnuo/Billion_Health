@@ -54,6 +54,8 @@ public class BaseCallActivity extends Activity implements IRongCallListener, Pic
     private long time = 0;
     private Runnable updateTimeRunnable;
     private boolean shouldShowFloat;
+    //是否是请求开启悬浮窗权限的过程中
+    private boolean checkingOverlaysPermission;
     private boolean shouldRestoreFloat;
     protected Handler handler;
     private BroadcastReceiver mHomeKeyReceiver;
@@ -84,10 +86,8 @@ public class BaseCallActivity extends Activity implements IRongCallListener, Pic
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         RLog.d(TAG, "BaseCallActivity onCreate");
-        //隐藏状态栏（全屏）
-        getWindow().setFlags(
-                WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON, WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED | WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);
@@ -108,7 +108,11 @@ public class BaseCallActivity extends Activity implements IRongCallListener, Pic
                 if (action.equals(Intent.ACTION_CLOSE_SYSTEM_DIALOGS)) {
                     String reason = intent.getStringExtra(SYSTEM_DIALOG_REASON_KEY);
                     if (SYSTEM_DIALOG_REASON_HOME_KEY.equals(reason) && shouldShowFloat) {
-                        finish();
+                        if (checkDrawOverlaysPermission(!checkingOverlaysPermission)) {
+                            finish();
+                        } else {
+                            shouldShowFloat = false;
+                        }
                     }
                 }
             }
@@ -282,19 +286,19 @@ public class BaseCallActivity extends Activity implements IRongCallListener, Pic
     protected void onPause() {
         isFinishing = isFinishing();
         if (isFinishing) {
-            try {
-                if (mHomeKeyReceiver != null) {
-                    unregisterReceiver(mHomeKeyReceiver);
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            if (shouldShowFloat) {
+            unRegisterHomeKeyReceiver();
+        }
+        if (shouldShowFloat && !checkingOverlaysPermission) {
+            if (checkDrawOverlaysPermission(true)) {
                 Bundle bundle = new Bundle();
                 String action = onSaveFloatBoxState(bundle);
                 if (action != null) {
                     bundle.putString("action", action);
                     CallFloatBoxView.showFloatBox(getApplicationContext(), bundle);
+                    if (!isFinishing()) {
+                        finish();
+                        unRegisterHomeKeyReceiver();
+                    }
                     int mediaType = bundle.getInt("mediaType");
                     showOnGoingNotification(getString(R.string.rc_call_on_going),
                             mediaType == RongCallCommon.CallMediaType.AUDIO.getValue() ? getString(R.string.rc_audio_call_on_going) : getString(R.string.rc_video_call_on_going));
@@ -316,6 +320,12 @@ public class BaseCallActivity extends Activity implements IRongCallListener, Pic
         long activeTime = session != null ? session.getActiveTime() : 0;
         time = activeTime == 0 ? 0 : (System.currentTimeMillis() - activeTime) / 1000;
         shouldRestoreFloat = true;
+        if (time > 0) {
+            shouldShowFloat = true;
+        }
+        if (checkingOverlaysPermission) {
+            checkDrawOverlaysPermission(false);
+        }
     }
 
     @Override
@@ -412,15 +422,37 @@ public class BaseCallActivity extends Activity implements IRongCallListener, Pic
     }
 
     void onMinimizeClick(View view) {
-        if (Build.BRAND.toLowerCase().contains("xiaomi")
-                || Build.VERSION.SDK_INT >= 23) {
+        if (checkDrawOverlaysPermission(true)) {
+            finish();
+        }
+    }
+
+    private boolean checkDrawOverlaysPermission(boolean needOpenPermissionSetting) {
+        if (Build.BRAND.toLowerCase().contains("xiaomi") || Build.VERSION.SDK_INT >= 23) {
             if (PermissionCheckUtil.canDrawOverlays(this)) {
-                finish();
+                checkingOverlaysPermission = false;
+                return true;
             } else {
-                Toast.makeText(this, R.string.rc_voip_float_window_not_allowed, Toast.LENGTH_LONG).show();
+                if (needOpenPermissionSetting && Build.BRAND.toLowerCase().contains("xiaomi")) {
+                    Toast.makeText(this, R.string.rc_voip_float_window_not_allowed, Toast.LENGTH_SHORT).show();
+                } else {
+                    checkingOverlaysPermission = true;
+                }
+                return false;
             }
         } else {
-            finish();
+            checkingOverlaysPermission = false;
+            return true;
+        }
+    }
+
+    private void unRegisterHomeKeyReceiver() {
+        try {
+            if (mHomeKeyReceiver != null) {
+                unregisterReceiver(mHomeKeyReceiver);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 

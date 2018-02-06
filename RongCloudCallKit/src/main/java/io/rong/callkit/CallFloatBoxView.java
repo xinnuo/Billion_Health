@@ -62,6 +62,8 @@ public class CallFloatBoxView {
         int type;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && Build.VERSION.SDK_INT < 24) {
             type = WindowManager.LayoutParams.TYPE_TOAST;
+        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            type = WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY;
         } else {
             type = WindowManager.LayoutParams.TYPE_PHONE;
         }
@@ -275,6 +277,7 @@ public class CallFloatBoxView {
         }
         RongCallClient.getInstance().setVoIPCallListener(RongCallProxy.getInstance());
         Intent intent = new Intent(mBundle.getString("action"));
+        intent.setPackage(mContext.getPackageName());
         intent.putExtra("floatbox", mBundle);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.putExtra("callAction", RongCallAction.ACTION_RESUME_CALL.getName());

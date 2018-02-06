@@ -10,6 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import java.util.Locale;
+
 import io.rong.calllib.RongCallClient;
 import io.rong.calllib.RongCallCommon;
 import io.rong.calllib.RongCallSession;
@@ -35,7 +37,7 @@ public class CallEndMessageItemProvider extends IContainerItemProvider.MessagePr
         View view = LayoutInflater.from(context).inflate(R.layout.rc_item_text_message, null);
 
         ViewHolder holder = new ViewHolder();
-        holder.message = (AutoLinkTextView) view.findViewById(android.R.id.text1);
+        holder.message = view.findViewById(android.R.id.text1);
         view.setTag(holder);
         return view;
     }
@@ -163,7 +165,7 @@ public class CallEndMessageItemProvider extends IContainerItemProvider.MessagePr
         }
         Intent intent = new Intent(action);
         intent.setPackage(view.getContext().getPackageName());
-        intent.putExtra("conversationType", message.getConversationType().getName().toLowerCase());
+        intent.putExtra("conversationType", message.getConversationType().getName().toLowerCase(Locale.US));
         intent.putExtra("targetId", message.getTargetId());
         intent.putExtra("callAction", RongCallAction.ACTION_OUTGOING_CALL.getName());
         view.getContext().startActivity(intent);

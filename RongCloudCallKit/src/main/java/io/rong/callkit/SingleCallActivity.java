@@ -241,11 +241,9 @@ public class SingleCallActivity extends BaseCallActivity implements Handler.Call
         if (userInfo != null) {
             TextView userName = (TextView) mUserInfoContainer.findViewById(R.id.rc_voip_user_name);
             userName.setText(userInfo.getName());
-            if (mediaType.equals(RongCallCommon.CallMediaType.AUDIO)) {
-                AsyncImageView userPortrait = (AsyncImageView) mUserInfoContainer.findViewById(R.id.rc_voip_user_portrait);
-                if (userPortrait != null && userInfo.getPortraitUri() != null) {
-                    userPortrait.setResource(userInfo.getPortraitUri().toString(), R.drawable.rc_default_portrait);
-                }
+            AsyncImageView userPortrait = (AsyncImageView) mUserInfoContainer.findViewById(R.id.rc_voip_user_portrait);
+            if (userPortrait != null && userInfo.getPortraitUri() != null) {
+                userPortrait.setResource(userInfo.getPortraitUri().toString(), R.drawable.rc_default_portrait);
             }
         }
 
@@ -291,7 +289,6 @@ public class SingleCallActivity extends BaseCallActivity implements Handler.Call
                 onIncomingCallRinging();
             }
         } else {
-            userInfoLayout = (RelativeLayout) inflater.inflate(R.layout.rc_voip_video_call_user_info, null);
             if (callAction.equals(RongCallAction.ACTION_INCOMING_CALL)) {
                 findViewById(R.id.rc_voip_call_information).setBackgroundColor(getResources().getColor(R.color.rc_voip_background_color));
                 buttonLayout = (FrameLayout) inflater.inflate(R.layout.rc_voip_call_bottom_incoming_button_layout, null);
@@ -581,6 +578,7 @@ public class SingleCallActivity extends BaseCallActivity implements Handler.Call
             } else {
                 message.setDirection("MT");
                 io.rong.imlib.model.Message.ReceivedStatus receivedStatus = new io.rong.imlib.model.Message.ReceivedStatus(0);
+                receivedStatus.setRead();
                 RongIM.getInstance().insertIncomingMessage(Conversation.ConversationType.PRIVATE, callSession.getTargetId(), senderId, receivedStatus, message, null);
             }
         }
@@ -636,8 +634,8 @@ public class SingleCallActivity extends BaseCallActivity implements Handler.Call
         onCallConnected(callSession, localVideo);
         if (remoteVideo != null && remoteVideo.getParent() != null) {
             ((ViewGroup) remoteVideo.getParent()).removeView(remoteVideo);
+            onRemoteUserJoined(remoteUserId, mediaType, remoteVideo);
         }
-        onRemoteUserJoined(remoteUserId, mediaType, remoteVideo);
     }
 
     @Override

@@ -25,7 +25,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginEnd="10dp"
-        android:layout_marginTop="22dp"
+        android:layout_marginTop="12dp"
         android:layout_below="@+id/rc_voip_call_minimize"
         android:layout_centerHorizontal="true"
         style="@style/rc_voip_text_style_style"
