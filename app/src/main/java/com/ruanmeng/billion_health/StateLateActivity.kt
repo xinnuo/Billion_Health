@@ -122,7 +122,9 @@ class StateLateActivity : BaseActivity() {
                                     layout.loadUriList(data.imgs.split(","))
                                     layout.setOnClickImageListener { position, view, _, urlList ->
                                         // 图片点击事件
-                                        MNImageBrowser.showImageBrowser(baseContext, view, position, urlList)
+                                        val imgs = ArrayList<Any>()
+                                        imgs.addAll(urlList)
+                                        MNImageBrowser.showImageBrowser(baseContext, view, position, imgs)
                                     }
                                 }
                             })

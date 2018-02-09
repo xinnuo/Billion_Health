@@ -159,7 +159,9 @@ class MainSecondFragment : BaseFragment() {
                                     layout.loadUriList(data.imgs.split(","))
                                     layout.setOnClickImageListener { position, view, _, urlList ->
                                         // 图片点击事件
-                                        MNImageBrowser.showImageBrowser(activity, view, position, urlList)
+                                        val imgs = ArrayList<Any>()
+                                        imgs.addAll(urlList)
+                                        MNImageBrowser.showImageBrowser(activity, view, position, imgs)
                                     }
                                 }
                             })

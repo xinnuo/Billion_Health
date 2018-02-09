@@ -76,14 +76,9 @@ public class MNGestureView extends RelativeLayout {
                     setScaleY(mScale);
 
                 }
-
-                if (deltaY < 0) setViewDefault();
-
-                /*if (deltaY < 0 && (Math.abs(deltaY) > ViewConfiguration.get(getContext()).getScaledTouchSlop() * 2 && Math.abs(deltaX) < Math.abs(deltaY) / 2)
-                        || mTracking) {
-                    setTranslationY(mInitialTy + deltaY);
-                    setTranslationX(mInitialTx + deltaX);
-                }*/
+                if (deltaY < 0) {
+                    setViewDefault();
+                }
 
                 break;
 

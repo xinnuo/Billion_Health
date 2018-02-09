@@ -17,13 +17,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <android.support.v4.view.ViewPager
+        <com.maning.imagebrowserlibrary.MNViewPager
             android:id="@+id/viewPagerBrowser"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
     </com.maning.imagebrowserlibrary.MNGestureView>
-
 
     <TextView
         android:id="@+id/tvNumShow"
@@ -31,7 +30,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="60dp"
         android:background="@drawable/mn_browser_num_bg"
         android:paddingBottom="6dp"
         android:paddingLeft="20dp"

@@ -76,7 +76,7 @@ class DoctorDetailActivity : BaseActivity() {
                         })
                                 .clicked(R.id.item_img, { v ->
                                     // 图片点击事件
-                                    val imgs = ArrayList<String>()
+                                    val imgs = ArrayList<Any>()
                                     list.mapTo(imgs) { HttpIP.BaseImg + (it as DoctorData).realPath }
 
                                     MNImageBrowser.showImageBrowser(baseContext, v, list.indexOf(data), imgs)

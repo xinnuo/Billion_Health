@@ -57,7 +57,7 @@ class HomeActivity : BaseActivity() {
 
                                 .clicked(R.id.item_img, { v ->
                                     // 图片点击事件
-                                    val imgs = ArrayList<String>()
+                                    val imgs = ArrayList<Any>()
                                     list.mapTo(imgs) { HttpIP.BaseImg + (it as CommonData).img }
 
                                     MNImageBrowser.showImageBrowser(baseContext, v, list.indexOf(data), imgs)
