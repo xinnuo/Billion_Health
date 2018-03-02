@@ -44,7 +44,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:text="儿童心理咨询" />
+                android:text="儿童健康咨询" />
         </LinearLayout>
 
         <LinearLayout
@@ -67,7 +67,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:text="青少年心理咨询" />
+                android:text="青少年健康咨询" />
         </LinearLayout>
 
         <LinearLayout
@@ -90,7 +90,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:text="成人心理咨询" />
+                android:text="成人健康咨询" />
         </LinearLayout>
 
         <LinearLayout
