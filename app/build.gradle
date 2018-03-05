@@ -94,7 +94,7 @@ dependencies {
     compile 'com.android.support:support-v4:' + versions.supportLibraryVersion
     compile 'com.android.support.constraint:constraint-layout:' + versions.constraintLayoutVersion
     compile 'org.jetbrains.kotlin:kotlin-stdlib:' + versions.kotlin_version
-    compile 'com.android.support:multidex:1.0.2'
+    compile 'com.android.support:multidex:1.0.3'
 
     compile project(':okgo-lib')
     compile project(':RollViewPager')
