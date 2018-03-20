@@ -33,8 +33,7 @@
         android:ellipsize="end"
         android:singleLine="true"
         android:textColor="#999999"
-        android:textSize="14sp"></TextView>
-
+        android:textSize="14sp" />
 
     <ImageView
         android:id="@android:id/icon1"

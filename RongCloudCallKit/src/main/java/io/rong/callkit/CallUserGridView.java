@@ -16,6 +16,9 @@ import java.util.List;
 import io.rong.imkit.widget.AsyncImageView;
 import io.rong.imlib.model.UserInfo;
 
+/**
+ * Created by weiqinxiao on 16/3/25.
+ */
 public class CallUserGridView extends ScrollView {
     private Context context;
     private boolean enableTitle;

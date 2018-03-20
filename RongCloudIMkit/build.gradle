@@ -17,7 +17,7 @@ android {
     defaultConfig {
         minSdkVersion versions.minSdkVersion
         targetSdkVersion versions.targetSdkVersion
-        versionName "2.8.17 Dev"
+        versionName "2.8.29 Stable"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 

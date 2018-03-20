@@ -16,7 +16,6 @@ import io.rong.calllib.RongCallClient;
 import io.rong.calllib.RongCallCommon;
 import io.rong.calllib.RongCallSession;
 import io.rong.calllib.message.CallSTerminateMessage;
-import io.rong.imkit.RongContext;
 import io.rong.imkit.widget.AutoLinkTextView;
 import io.rong.imkit.RongIM;
 import io.rong.imkit.model.ProviderTag;
@@ -25,19 +24,20 @@ import io.rong.imkit.utilities.OptionsPopupDialog;
 import io.rong.imkit.widget.provider.IContainerItemProvider;
 import io.rong.imlib.model.Message;
 
+import static io.rong.calllib.RongCallCommon.CallDisconnectedReason.OTHER_DEVICE_HAD_ACCEPTED;
+
 @ProviderTag(messageContent = CallSTerminateMessage.class, showSummaryWithName = false, showProgress = false, showWarning = false, showReadState = false)
 public class CallEndMessageItemProvider extends IContainerItemProvider.MessageProvider<CallSTerminateMessage> {
     private static class ViewHolder {
         AutoLinkTextView message;
     }
 
-
     @Override
     public View newView(Context context, ViewGroup group) {
         View view = LayoutInflater.from(context).inflate(R.layout.rc_item_text_message, null);
 
         ViewHolder holder = new ViewHolder();
-        holder.message = view.findViewById(android.R.id.text1);
+        holder.message = (AutoLinkTextView) view.findViewById(android.R.id.text1);
         view.setTag(holder);
         return view;
     }
@@ -106,28 +106,28 @@ public class CallEndMessageItemProvider extends IContainerItemProvider.MessagePr
                 drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
                 holder.message.setCompoundDrawables(null, null, drawable, null);
             } else {
-                drawable = RongContext.getInstance().getResources().getDrawable(R.drawable.rc_voip_video_left);
-                drawable.setBounds(0, 0,  drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+                drawable = v.getResources().getDrawable(R.drawable.rc_voip_video_left);
+                drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
                 holder.message.setCompoundDrawables(drawable, null, null, null);
             }
         } else {
             if (direction != null && direction.equals("MO")) {
                 if (content.getReason().equals(RongCallCommon.CallDisconnectedReason.HANGUP) ||
                         content.getReason().equals(RongCallCommon.CallDisconnectedReason.REMOTE_HANGUP)) {
-                    drawable = RongContext.getInstance().getResources().getDrawable(R.drawable.rc_voip_audio_right_connected);
+                    drawable = v.getResources().getDrawable(R.drawable.rc_voip_audio_right_connected);
                 } else {
-                    drawable = RongContext.getInstance().getResources().getDrawable(R.drawable.rc_voip_audio_right_cancel);
+                    drawable = v.getResources().getDrawable(R.drawable.rc_voip_audio_right_cancel);
                 }
-                drawable.setBounds(0, 0,  drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+                drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
                 holder.message.setCompoundDrawables(null, null, drawable, null);
             } else {
                 if (content.getReason().equals(RongCallCommon.CallDisconnectedReason.HANGUP) ||
                         content.getReason().equals(RongCallCommon.CallDisconnectedReason.REMOTE_HANGUP)) {
-                    drawable = RongContext.getInstance().getResources().getDrawable(R.drawable.rc_voip_audio_left_connected);
+                    drawable = v.getResources().getDrawable(R.drawable.rc_voip_audio_left_connected);
                 } else {
-                    drawable = RongContext.getInstance().getResources().getDrawable(R.drawable.rc_voip_audio_left_cancel);
+                    drawable = v.getResources().getDrawable(R.drawable.rc_voip_audio_left_cancel);
                 }
-                drawable.setBounds(0, 0,  drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+                drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
                 holder.message.setCompoundDrawables(drawable, null, null, null);
             }
         }
@@ -135,17 +135,25 @@ public class CallEndMessageItemProvider extends IContainerItemProvider.MessagePr
 
     @Override
     public Spannable getContentSummary(CallSTerminateMessage data) {
+        return null;
+    }
+
+    @Override
+    public Spannable getContentSummary(Context context, CallSTerminateMessage data) {
 
         RongCallCommon.CallMediaType mediaType = data.getMediaType();
         if (mediaType.equals(RongCallCommon.CallMediaType.AUDIO)) {
-            return new SpannableString(RongContext.getInstance().getString(R.string.rc_voip_message_audio));
+            return new SpannableString(context.getString(R.string.rc_voip_message_audio));
         } else {
-            return new SpannableString(RongContext.getInstance().getString(R.string.rc_voip_message_video));
+            return new SpannableString(context.getString(R.string.rc_voip_message_video));
         }
     }
 
     @Override
     public void onItemClick(View view, int position, CallSTerminateMessage content, UIMessage message) {
+        if (content.getReason() == OTHER_DEVICE_HAD_ACCEPTED) {
+            return;
+        }
         RongCallSession profile = RongCallClient.getInstance().getCallSession();
         if (profile != null && profile.getActiveTime() > 0) {
             Toast.makeText(view.getContext(),
@@ -174,13 +182,13 @@ public class CallEndMessageItemProvider extends IContainerItemProvider.MessagePr
     @Override
     public void onItemLongClick(final View view, int position, final CallSTerminateMessage content, final UIMessage message) {
 
-        String[] items = new String[] {view.getContext().getResources().getString(R.string.rc_dialog_item_message_delete)};
+        String[] items = new String[]{view.getContext().getResources().getString(R.string.rc_dialog_item_message_delete)};
 
         OptionsPopupDialog.newInstance(view.getContext(), items).setOptionsPopupDialogListener(new OptionsPopupDialog.OnOptionsItemClickedListener() {
             @Override
             public void onOptionsItemClicked(int which) {
                 if (which == 0)
-                    RongIM.getInstance().deleteMessages(new int[] {message.getMessageId()}, null);
+                    RongIM.getInstance().deleteMessages(new int[]{message.getMessageId()}, null);
             }
         }).show();
     }

@@ -1,5 +1,8 @@
 package io.rong.callkit;
 
+/**
+ * Created by weiqinxiao on 16/3/15.
+ */
 public enum RongCallAction {
     ACTION_OUTGOING_CALL(1, "ACTION_OUTGOING_CALL"),
     ACTION_INCOMING_CALL(2, "ACTION_INCOMING_CALL"),

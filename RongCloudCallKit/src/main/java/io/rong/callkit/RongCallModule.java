@@ -16,6 +16,9 @@ import io.rong.imkit.manager.IExternalModule;
 import io.rong.imkit.plugin.IPluginModule;
 import io.rong.imlib.model.Conversation;
 
+/**
+ * Created by weiqinxiao on 16/8/15.
+ */
 public class RongCallModule implements IExternalModule {
     private final static String TAG = "RongCallModule";
 
@@ -30,6 +33,7 @@ public class RongCallModule implements IExternalModule {
     @Override
     public void onInitialized(String appKey) {
         RongIM.registerMessageTemplate(new CallEndMessageItemProvider());
+        RongIM.registerMessageTemplate(new MultiCallEndMessageProvider());
     }
 
     @Override

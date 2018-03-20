@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@id/rc_item_conversation"
@@ -17,8 +18,8 @@
 
         <io.rong.imkit.widget.AsyncImageView
             android:id="@+id/rc_left"
-            android:layout_width="45dp"
-            android:layout_height="45dp"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:layout_gravity="center"
             android:background="@android:color/transparent"
             android:scaleType="centerCrop"
@@ -27,16 +28,14 @@
             app:RCShape="circle" />
 
         <FrameLayout
+            android:id="@+id/rc_unread_view_left"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end|top"
-            android:paddingTop="4dp">
+            android:layout_height="wrap_content">
 
             <ImageView
                 android:id="@+id/rc_unread_message_icon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center" />
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
 
             <TextView
                 android:id="@+id/rc_unread_message"
@@ -66,9 +65,9 @@
 
         <io.rong.imkit.widget.AsyncImageView
             android:id="@id/rc_right"
-            android:layout_width="45dp"
-            android:layout_height="45dp"
-            android:layout_gravity="center_vertical"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center"
             android:background="@android:color/transparent"
             android:scaleType="centerCrop"
             app:RCCornerRadius="3dp"
@@ -76,16 +75,14 @@
             app:RCShape="circle" />
 
         <FrameLayout
+            android:id="@+id/rc_unread_view_right"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end|top"
-            android:paddingTop="5dp">
+            android:layout_height="wrap_content">
 
             <ImageView
                 android:id="@+id/rc_unread_message_icon_right"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center" />
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
 
             <TextView
                 android:id="@+id/rc_unread_message_right"

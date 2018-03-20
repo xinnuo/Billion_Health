@@ -1,5 +1,8 @@
 package io.rong.callkit;
 
+/**
+ * Created by weiqinxiao on 16/3/18.
+ */
 public class RongVoIPIntent {
     public static final String RONG_INTENT_VOIP_CATEGORY = "io.rong.intent.category.voip";
 

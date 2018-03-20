@@ -5,23 +5,18 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <!-- 查看网络状态 -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <!-- 查看 Wi-Fi 状态 -->
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-
-    <!-- 获取机型信息权限 -->
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-
-    <!-- 录音 -->
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.GET_TASKS" />
-    <!-- 防止设备休眠 -->
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
-    <!-- 控制振动器 -->
     <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
 
@@ -29,9 +24,6 @@
     <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
-
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <application>
 
@@ -79,7 +71,7 @@
             android:windowSoftInputMode="adjustPan|stateHidden" />
         <activity android:name="io.rong.imkit.activity.FileManagerActivity" />
         <activity android:name="io.rong.imkit.activity.FileListActivity" />
-        <activity android:name="io.rong.imkit.activity.FilePreviewActivity">
+        <activity android:name="io.rong.imkit.activity.FilePreviewActivity" >
             <intent-filter>
                 <action android:name="io.rong.imkit.intent.action.openfile" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -89,7 +81,7 @@
         <activity
             android:name=".activity.CSLeaveMessageActivity"
             android:configChanges="orientation|keyboardHidden"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
 
         <!-- 此部分代码需要移植到您的 app 下的 manifest，并且 authorities 指定您的包名。例如：com.android.FileProvider -->
         <!-- 否则使用拍照功能时，会崩溃 -->
@@ -114,8 +106,9 @@
             android:process=":ipc" />
 
         <service
-            android:name="io.rong.imlib.ReConnectService"
-            android:exported="true" />
+            android:name=".ReConnectService"
+            android:exported="true"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
 
         <receiver
             android:name="io.rong.imlib.ConnectChangeReceiver"
@@ -126,23 +119,26 @@
             android:process=":ipc" />
         <!-- imlib config end -->
 
+
         <!--必选： SDK 核心功能-->
         <!--第三方相关,向第三方推送服务请求 token 的服务 -->
-        <service
-            android:name="io.rong.push.core.PushRegistrationService"
-            android:exported="false" />
-
         <!-- 处理 push 消息相关的服务 -->
         <service
+            android:name="io.rong.push.core.PushRegistrationService"
+            android:exported="true"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+
+        <service
             android:name="io.rong.push.core.MessageHandleService"
-            android:exported="true" />
+            android:exported="true"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
 
         <!-- push服务 -->
         <service
             android:name="io.rong.push.PushService"
             android:exported="true"
-            android:process="io.rong.push">  <!-- push进程，可以改名 -->
-        </service>
+            android:permission="android.permission.BIND_JOB_SERVICE"
+            android:process="io.rong.push" />  <!-- push进程，可以改名 -->
 
         <!-- push 相关事件接收器 -->
         <receiver

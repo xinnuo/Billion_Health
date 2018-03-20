@@ -25,6 +25,9 @@ import io.rong.imlib.RongIMClient;
 import io.rong.imlib.model.Conversation;
 import io.rong.imlib.model.Discussion;
 
+/**
+ * Created by weiqinxiao on 16/8/16.
+ */
 public class VideoPlugin implements IPluginModule {
     private static final String TAG = "VideoPlugin";
     private ArrayList<String> allMembers;
@@ -46,7 +49,7 @@ public class VideoPlugin implements IPluginModule {
     @Override
     public void onClick(Fragment currentFragment, final RongExtension extension) {
 
-        String[] permissions = {Manifest.permission.CAMERA, Manifest.permission.RECORD_AUDIO};
+        String[] permissions = {Manifest.permission.CAMERA, Manifest.permission.RECORD_AUDIO, Manifest.permission.READ_PHONE_STATE};
         if (!PermissionCheckUtil.requestPermissions(currentFragment, permissions)) {
             return;
         }

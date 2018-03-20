@@ -1,6 +1,5 @@
 package io.rong.callkit;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -27,7 +26,10 @@ import io.rong.imkit.widget.AsyncImageView;
 import io.rong.imlib.model.Conversation;
 import io.rong.imlib.model.UserInfo;
 
-public class CallSelectMemberActivity extends Activity {
+/**
+ * Created by weiqinxiao on 16/3/15.
+ */
+public class CallSelectMemberActivity extends BaseNoActionBarActivity {
 
     ArrayList<String> selectedMember;
     TextView txtvStart;

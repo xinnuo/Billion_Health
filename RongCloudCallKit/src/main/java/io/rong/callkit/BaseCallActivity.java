@@ -2,13 +2,10 @@ package io.rong.callkit;
 
 import android.Manifest;
 import android.annotation.TargetApi;
-import android.app.Activity;
 import android.app.Notification;
 import android.app.PendingIntent;
-import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.media.RingtoneManager;
@@ -40,25 +37,28 @@ import io.rong.imkit.manager.AudioRecordManager;
 import io.rong.imkit.utilities.PermissionCheckUtil;
 import io.rong.imkit.utils.NotificationUtil;
 
-public class BaseCallActivity extends Activity implements IRongCallListener, PickupDetector.PickupDetectListener {
+/**
+ * Created by weiqinxiao on 16/3/9.
+ */
+public class BaseCallActivity extends BaseNoActionBarActivity implements IRongCallListener, PickupDetector.PickupDetectListener {
 
     private static final String TAG = "BaseCallActivity";
     private final static long DELAY_TIME = 1000;
     static final int REQUEST_CODE_ASK_MULTIPLE_PERMISSIONS = 100;
     static final int REQUEST_CODE_ADD_MEMBER = 110;
-    private static final String SYSTEM_DIALOG_REASON_KEY = "reason";
-    private static final String SYSTEM_DIALOG_REASON_HOME_KEY = "homekey";
 
     private MediaPlayer mMediaPlayer;
     private Vibrator mVibrator;
     private long time = 0;
     private Runnable updateTimeRunnable;
     private boolean shouldShowFloat;
+    private boolean shouldRestoreFloat;
     //是否是请求开启悬浮窗权限的过程中
     private boolean checkingOverlaysPermission;
-    private boolean shouldRestoreFloat;
     protected Handler handler;
-    private BroadcastReceiver mHomeKeyReceiver;
+    /**
+     * 表示是否正在挂断
+     */
     protected boolean isFinishing;
 
     protected PickupDetector pickupDetector;
@@ -101,28 +101,6 @@ public class BaseCallActivity extends Activity implements IRongCallListener, Pic
             wl.release();
         }
         handler = new Handler();
-        mHomeKeyReceiver = new BroadcastReceiver() {
-            @Override
-            public void onReceive(Context context, Intent intent) {
-                String action = intent.getAction();
-                if (action.equals(Intent.ACTION_CLOSE_SYSTEM_DIALOGS)) {
-                    String reason = intent.getStringExtra(SYSTEM_DIALOG_REASON_KEY);
-                    if (SYSTEM_DIALOG_REASON_HOME_KEY.equals(reason) && shouldShowFloat) {
-                        if (checkDrawOverlaysPermission(!checkingOverlaysPermission)) {
-                            finish();
-                        } else {
-                            shouldShowFloat = false;
-                        }
-                    }
-                }
-            }
-        };
-        try {
-            registerReceiver(mHomeKeyReceiver, new IntentFilter(Intent.ACTION_CLOSE_SYSTEM_DIALOGS));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        isFinishing = false;
         RongCallProxy.getInstance().setCallListener(this);
 
         AudioPlayManager.getInstance().stopPlay();
@@ -183,6 +161,7 @@ public class BaseCallActivity extends Activity implements IRongCallListener, Pic
     public void stopRing() {
         if (mMediaPlayer != null) {
             mMediaPlayer.stop();
+            mMediaPlayer.release();
             mMediaPlayer = null;
         }
         if (mVibrator != null) {
@@ -237,6 +216,9 @@ public class BaseCallActivity extends Activity implements IRongCallListener, Pic
             case INIT_VIDEO_ERROR:
                 text = getString(R.string.rc_voip_call_terminalted);
                 break;
+            case OTHER_DEVICE_HAD_ACCEPTED:
+                text = getString(R.string.rc_voip_call_other);
+                break;
         }
         if (text != null) {
             showShortToast(text);
@@ -284,25 +266,22 @@ public class BaseCallActivity extends Activity implements IRongCallListener, Pic
 
     @Override
     protected void onPause() {
-        isFinishing = isFinishing();
-        if (isFinishing) {
-            unRegisterHomeKeyReceiver();
-        }
         if (shouldShowFloat && !checkingOverlaysPermission) {
+            Bundle bundle = new Bundle();
+            String action = onSaveFloatBoxState(bundle);
             if (checkDrawOverlaysPermission(true)) {
-                Bundle bundle = new Bundle();
-                String action = onSaveFloatBoxState(bundle);
                 if (action != null) {
                     bundle.putString("action", action);
                     CallFloatBoxView.showFloatBox(getApplicationContext(), bundle);
-                    if (!isFinishing()) {
-                        finish();
-                        unRegisterHomeKeyReceiver();
-                    }
                     int mediaType = bundle.getInt("mediaType");
                     showOnGoingNotification(getString(R.string.rc_call_on_going),
                             mediaType == RongCallCommon.CallMediaType.AUDIO.getValue() ? getString(R.string.rc_audio_call_on_going) : getString(R.string.rc_video_call_on_going));
+                    if (!isFinishing()) {
+                        finish();
+                    }
                 }
+            } else {
+                Toast.makeText(this, getString(R.string.rc_voip_float_window_not_allowed), Toast.LENGTH_SHORT).show();
             }
         }
         super.onPause();
@@ -312,11 +291,15 @@ public class BaseCallActivity extends Activity implements IRongCallListener, Pic
     protected void onResume() {
         super.onResume();
         RLog.d(TAG, "BaseCallActivity onResume");
+        RongCallSession session = RongCallClient.getInstance().getCallSession();
+        if (session == null) {
+            finish();
+        }
         RongCallProxy.getInstance().setCallListener(this);
         if (shouldRestoreFloat) {
             CallFloatBoxView.hideFloatBox();
+            NotificationUtil.clearNotification(this, BaseCallActivity.CALL_NOTIFICATION_ID);
         }
-        RongCallSession session = RongCallClient.getInstance().getCallSession();
         long activeTime = session != null ? session.getActiveTime() : 0;
         time = activeTime == 0 ? 0 : (System.currentTimeMillis() - activeTime) / 1000;
         shouldRestoreFloat = true;
@@ -342,7 +325,6 @@ public class BaseCallActivity extends Activity implements IRongCallListener, Pic
     @Override
     protected void onDestroy() {
         RongContext.getInstance().getEventBus().unregister(this);
-        isFinishing = false;
         handler.removeCallbacks(updateTimeRunnable);
         super.onDestroy();
     }
@@ -429,13 +411,11 @@ public class BaseCallActivity extends Activity implements IRongCallListener, Pic
 
     private boolean checkDrawOverlaysPermission(boolean needOpenPermissionSetting) {
         if (Build.BRAND.toLowerCase().contains("xiaomi") || Build.VERSION.SDK_INT >= 23) {
-            if (PermissionCheckUtil.canDrawOverlays(this)) {
+            if (PermissionCheckUtil.canDrawOverlays(this, needOpenPermissionSetting)) {
                 checkingOverlaysPermission = false;
                 return true;
             } else {
-                if (needOpenPermissionSetting && Build.BRAND.toLowerCase().contains("xiaomi")) {
-                    Toast.makeText(this, R.string.rc_voip_float_window_not_allowed, Toast.LENGTH_SHORT).show();
-                } else {
+                if (needOpenPermissionSetting && !Build.BRAND.toLowerCase().contains("xiaomi")) {
                     checkingOverlaysPermission = true;
                 }
                 return false;
@@ -443,16 +423,6 @@ public class BaseCallActivity extends Activity implements IRongCallListener, Pic
         } else {
             checkingOverlaysPermission = false;
             return true;
-        }
-    }
-
-    private void unRegisterHomeKeyReceiver() {
-        try {
-            if (mHomeKeyReceiver != null) {
-                unregisterReceiver(mHomeKeyReceiver);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
         }
     }
 
@@ -476,16 +446,12 @@ public class BaseCallActivity extends Activity implements IRongCallListener, Pic
             return;
         }
         if (isPickingUp && !wakeLock.isHeld()) {
-            setShouldShowFloat(false);
-            shouldRestoreFloat = false;
             wakeLock.acquire();
         }
         if (!isPickingUp && wakeLock.isHeld()) {
             try {
                 wakeLock.setReferenceCounted(false);
                 wakeLock.release();
-                setShouldShowFloat(true);
-                shouldRestoreFloat = true;
             } catch (Exception e) {
 
             }

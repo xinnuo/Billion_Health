@@ -2,7 +2,6 @@ package com.ruanmeng.fragment
 
 import android.net.Uri
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -21,9 +20,6 @@ import io.rong.imlib.model.Conversation
 import io.rong.imlib.model.UserInfo
 import kotlinx.android.synthetic.main.layout_title_third.*
 
-/**
- * A simple [Fragment] subclass.
- */
 class MainThirdFragment : BaseFragment() {
 
     private var list: List<Conversation>? = null
@@ -46,6 +42,7 @@ class MainThirdFragment : BaseFragment() {
 
         enterFragment()
 
+        @Suppress("DEPRECATION")
         list = RongIM.getInstance().conversationList
         // if (list != null && list!!.isNotEmpty()) getData()
     }

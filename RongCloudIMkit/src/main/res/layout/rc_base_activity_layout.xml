@@ -21,11 +21,11 @@
             android:singleLine="true" />
 
         <View
-            android:layout_width="0.2dp"
+            android:layout_width="1dp"
             android:layout_height="24dp"
             android:layout_marginBottom="12dp"
             android:layout_marginTop="12dp"
-            android:background="#ffffff" />
+            android:background="#0083e0" />
 
         <TextView
             android:id="@+id/rc_action_bar_title"
@@ -57,4 +57,5 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:background="@android:color/transparent" />
+
 </LinearLayout>
