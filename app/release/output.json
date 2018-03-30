@@ -1,1 +1,1 @@
-[{"outputType":{"type":"APK"},"apkInfo":{"type":"MAIN","splits":[],"versionCode":105},"path":"app-release-v1.0.5.apk","properties":{"packageId":"com.ruanmeng.billion_health","split":"","minSdkVersion":"16"}}]
+[{"outputType":{"type":"APK"},"apkInfo":{"type":"MAIN","splits":[],"versionCode":106,"versionName":"1.0.6","enabled":true,"outputFile":"app-release-v1.0.6.apk","fullName":"release","baseName":"release"},"path":"app-release-v1.0.6.apk","properties":{}}]
