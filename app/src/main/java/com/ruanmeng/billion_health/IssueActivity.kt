@@ -261,7 +261,7 @@ class IssueActivity : BaseActivity() {
                                         EventBus.getDefault().post(StateMessageEvent(mType, "我的动态"))
                                     else EventBus.getDefault().post(MainSecondEvent(mType, "朋友圈"))
 
-                                    ActivityStack.getScreenManager().popActivity()
+                                    ActivityStack.getScreenManager().popActivities(this@IssueActivity::class.java)
                                 }
 
                             })
@@ -358,7 +358,7 @@ class IssueActivity : BaseActivity() {
                                         EventBus.getDefault().post(StateMessageEvent(mType, "我的动态"))
                                     else EventBus.getDefault().post(MainSecondEvent(mType, "朋友圈"))
 
-                                    ActivityStack.getScreenManager().popActivity()
+                                    ActivityStack.getScreenManager().popActivities(this@IssueActivity::class.java)
                                 }
 
                             })

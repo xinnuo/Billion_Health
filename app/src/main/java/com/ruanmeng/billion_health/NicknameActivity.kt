@@ -66,7 +66,7 @@ class NicknameActivity : BaseActivity() {
                                         getString("nickName"),
                                         Uri.parse(HttpIP.BaseImg + getString("userhead"))))
 
-                                ActivityStack.getScreenManager().popActivity()
+                                ActivityStack.getScreenManager().popActivities(this@NicknameActivity::class.java)
                             }
 
                         })

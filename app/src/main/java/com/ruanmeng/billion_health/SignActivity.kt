@@ -58,7 +58,7 @@ class SignActivity : BaseActivity() {
                                 showToask(msg)
                                 putString("sign", et_content.text.toString())
 
-                                ActivityStack.getScreenManager().popActivity()
+                                ActivityStack.getScreenManager().popActivities(this@SignActivity::class.java)
                             }
 
                         })

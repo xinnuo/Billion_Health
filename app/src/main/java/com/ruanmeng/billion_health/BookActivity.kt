@@ -120,7 +120,7 @@ class BookActivity : BaseActivity() {
                             override fun onSuccessResponse(response: Response<String>, msg: String, msgCode: String) {
                                 showToask(msg)
 
-                                ActivityStack.getScreenManager().popActivity()
+                                ActivityStack.getScreenManager().popActivities(this@BookActivity::class.java)
                             }
 
                         })

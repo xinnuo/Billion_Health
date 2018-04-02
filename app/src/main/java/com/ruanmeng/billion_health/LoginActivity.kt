@@ -107,7 +107,7 @@ class LoginActivity : BaseActivity() {
                                 EventBus.getDefault().post(LoginMessageEvent(getString("token"), "登录成功"))
                                 EventBus.getDefault().post(MainMessageEvent(getString("token"), "登录成功"))
 
-                                ActivityStack.getScreenManager().popActivity()
+                                ActivityStack.getScreenManager().popActivities(this@LoginActivity::class.java)
                             }
 
                         })

@@ -239,7 +239,7 @@ class CityActivity : BaseActivity() {
 
                         EventBus.getDefault().post(MainCityEvent(getString("cityCode"), getString("city")))
 
-                        ActivityStack.getScreenManager().popActivity()
+                        ActivityStack.getScreenManager().popActivities(this@CityActivity::class.java)
                     }
 
                 })

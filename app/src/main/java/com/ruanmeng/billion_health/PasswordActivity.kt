@@ -77,7 +77,7 @@ class PasswordActivity : BaseActivity() {
                                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
                                 startActivity(intent)
 
-                                ActivityStack.getScreenManager().popActivity()
+                                ActivityStack.getScreenManager().popActivities(this@PasswordActivity::class.java)
                             }
 
                         })
