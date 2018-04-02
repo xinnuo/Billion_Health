@@ -9,9 +9,7 @@
     <com.github.chrisbanes.photoview.PhotoView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_centerInParent="true"
-        android:scaleType="centerInside" />
+        android:layout_height="match_parent" />
 
     <RelativeLayout
         android:id="@+id/rl_image_placeholder_bg"
