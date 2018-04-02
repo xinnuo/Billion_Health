@@ -16,6 +16,7 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.view.ViewGroup.LayoutParams;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.SimpleTarget;
@@ -30,7 +31,6 @@ import com.maning.imagebrowserlibrary.transforms.ZoomOutSlideTransformer;
 import com.maning.imagebrowserlibrary.transforms.ZoomOutTransformer;
 
 import java.util.ArrayList;
-
 
 /**
  * 图片浏览的页面
@@ -253,7 +253,7 @@ public class MNImageBrowserActivity extends AppCompatActivity {
                 }
             });
 
-            container.addView(inflate);
+            container.addView(inflate, LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
             return inflate;
         }
     }
