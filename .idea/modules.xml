@@ -4,7 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/AMap/AMap.iml" filepath="$PROJECT_DIR$/AMap/AMap.iml" />
       <module fileurl="file://$PROJECT_DIR$/BaiduMap/BaiduMap.iml" filepath="$PROJECT_DIR$/BaiduMap/BaiduMap.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Billion_Health.iml" filepath="$PROJECT_DIR$/Billion_Health.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Billion_Health.iml" filepath="$PROJECT_DIR$/.idea/Billion_Health.iml" />
       <module fileurl="file://$PROJECT_DIR$/JPush/JPush.iml" filepath="$PROJECT_DIR$/JPush/JPush.iml" />
       <module fileurl="file://$PROJECT_DIR$/MNImageBrowser/MNImageBrowser.iml" filepath="$PROJECT_DIR$/MNImageBrowser/MNImageBrowser.iml" />
       <module fileurl="file://$PROJECT_DIR$/MNProgressHUD/MNProgressHUD.iml" filepath="$PROJECT_DIR$/MNProgressHUD/MNProgressHUD.iml" />
