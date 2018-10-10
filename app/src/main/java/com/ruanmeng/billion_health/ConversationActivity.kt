@@ -1,5 +1,6 @@
 package com.ruanmeng.billion_health
 
+import android.annotation.SuppressLint
 import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
@@ -38,7 +39,8 @@ class ConversationActivity : BaseActivity() {
     private val SET_VOICE_TYPING_TITLE = 2
     private val SET_TARGET_ID_TITLE = 0
 
-    private val handler = object : Handler() {
+    private val handler = @SuppressLint("HandlerLeak")
+    object : Handler() {
         override fun handleMessage(msg: Message) {
             when (msg.what) {
                 SET_TEXT_TYPING_TITLE -> conversation_name.text = TextTypingTitle
