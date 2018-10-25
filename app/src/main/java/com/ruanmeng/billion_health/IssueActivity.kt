@@ -146,7 +146,7 @@ class IssueActivity : BaseActivity() {
         super.doClick(v)
         when(v.id) {
             R.id.iv_nav_right -> {
-                DialogHelper.showIssueCameraDialog(this@IssueActivity, { name ->
+                DialogHelper.showIssueCameraDialog(this@IssueActivity) { name ->
                     when(name) {
                         "拍摄" -> {
                             if (selectList.isNotEmpty() && selectList[0].mimeType != PictureMimeType.ofVideo()) {
@@ -231,7 +231,7 @@ class IssueActivity : BaseActivity() {
                                     .forResult(PictureConfig.CHOOSE_REQUEST)
                         }
                     }
-                })
+                }
             }
             R.id.bt_issue -> {
                 if (mType == "") {
